@@ -1,4 +1,5 @@
-// idea calculadora de krunkyrpg
+
+
 
 alert('¡Le damos la bienvenida al creador de personajes de KrunkyRpg!');
 

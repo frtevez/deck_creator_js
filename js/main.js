@@ -13,29 +13,6 @@ class CardStructure {
 
 };
 
-alert('Welcome to the deck creator.')
-alert('You will first be asked to name your custom cards\' stats.\nThen you will be asked to fill in all the individual cards\' details.')
-alert('If you wish to stop creating new stats or cards, do not fill in the next stat name or card name.')
-createDeck()
-
-
-function createDeck() {
-    for (let i = 0; Infinity; i++) {
-
-        if (createStat() == false) {
-            break
-        }
-    }
-
-    for (let i = 0; Infinity; i++) {
-
-        if (createCard(i) == false) {
-            break
-        }
-    }
-    console.log(cards);
-}
-
 function createStat() {
     let newStat = prompt('Enter a stat name:');
     if (newStat == '' || newStat == null) {
@@ -58,5 +35,31 @@ function createCard(i) {
     })
     cards.push(card);
     return true;
-}
+};
 
+function createDeck() {
+    for (let i = 0; Infinity; i++) {
+
+        if (!createStat()) {
+            break
+        }
+    }
+
+    for (let i = 0; Infinity; i++) {
+
+        if (!createCard(i)) {
+            break
+        }
+    }
+    console.log(cards);
+};
+
+function displayCard() {
+    
+};
+
+alert('Welcome to the deck creator.');
+alert('You will first be asked to name your custom cards\' stats.\nThen you will be asked to fill in all the individual cards\' details.');
+alert('If you wish to stop creating new stats or cards, do not fill in the next stat name or card name.');
+
+createDeck();

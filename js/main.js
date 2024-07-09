@@ -14,11 +14,11 @@ class CardStructure {
     readCard() {
         const cardLine = '______________________________________________________________________\n';
         let cardData = cardLine;
-        for (let property in this){
-            if (property == 'Id'){
+        for (let property in this) {
+            if (property == 'Id') {
                 continue;
             };
-            if (property == 'Name'){
+            if (property == 'Name') {
                 cardData += `${this[property]}\n`;
                 cardData += cardLine;
                 continue;
@@ -70,17 +70,32 @@ function createDeck() {
     };
 };
 
+function sortCards() {
+    cards.sort((a, b) => {
+        if (a.Name > b.Name) {
+            return 1;
+        };
+        if (a.Name < b.Name) {
+            return -1;
+        }
+        return 0;
+    });
+}
+
 function displayDeck() {
     let deck = '';
-    for (let card in cards){
+    for (let card in cards) {
         deck += `${cards[card].readCard()}\n`;
     };
-    alert('Here\'s your custom deck of cards:\n' + deck);
+    return deck;
 };
+
+
 
 alert('Welcome to the deck creator.');
 alert('You will first be asked to name your custom cards\' stats.\nThen you will be asked to fill in all the individual cards\' details.');
 alert('If you wish to stop creating new stats or cards, do not fill in the next stat name or card name.');
 
 createDeck();
-displayDeck();
+sortCards();
+alert('Here\'s your custom deck of cards:\n' + displayDeck());

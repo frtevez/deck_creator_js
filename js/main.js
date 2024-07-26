@@ -22,8 +22,6 @@ let cardPreview = new CardStructure();
 
 let deck = JSON.parse(sessionStorage.getItem("deck")) || [];
 
-
-
 console.log(deck);
 
 const deckContainer = document.querySelector('#deck');
@@ -70,8 +68,9 @@ const updateDeck = () =>{
 
 cardSubmitter.addEventListener('submit', (e) => {
     e.preventDefault();
-    deck.push(cardPreview);
-    // console.log(deck);
+    
+    deck.push({...cardPreview});
+    
     updateDeck()
 });
 

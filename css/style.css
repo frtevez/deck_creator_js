@@ -244,6 +244,7 @@ article>.card-contents>p.card-description {
 
 article>.card-contents>.card-side-attributes-container {
     position: relative;
+    display: none;
 }
 
 article>.card-contents>.card-side-attributes-container>.card-side-attributes {

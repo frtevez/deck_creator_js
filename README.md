@@ -2,4 +2,4 @@ PRE-ENTREGA 3 (INCOMPLETA)
 ---
 El proyecto consiste en un creador de mazo de cartas personalizadas.
 
-La interacción con el DOM está implementada, me falta resolver storage.
+El storage está implementado, pero sólo se puede ver en la consola por ahora. Hay que crear una carta (no hace falta rellenar todos los campos) y actualizar la página.

@@ -1,11 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pre-entrega 2</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Pre-entrega 3</title>
 </head>
+
 <body>
+    <header>
+        <h1>CARD DESIGNER</h1>
+    </header>
+    <main>
+
+        <aside id="card-creator">
+            <section id="attribute-creator">
+                <h2>Add New Attribute</h2>
+                <form id="text-attribute-submitter">
+                    <input type="text" id="input-text-attribute" class="text-inputs">
+
+                    <input type="file" id="input-icon-attribute" class="img-input">
+                    <label for="input-icon-attribute" class="img-input-button">Upload Icon</label>
+
+                    <input type="submit" value="Add" id="submit-attribute" class="submit-button">
+                </form>
+                <form action="">
+                </form>
+                <form action="" id="new-attribute-options">
+                    <input type="radio" name="option" id="option1" checked>
+                    <label for="option1"><img src="./res/temp-attribute-option.svg" alt="" style="height:30px;"
+                            class="attribute-option"></label>
+                    <input type="radio" name="option" id="option2">
+                    <label for="option2"><img src="./res/temp-attribute-option.svg" alt="" style="height:30px;"
+                            class="attribute-option"></label>
+                    <input type="radio" name="option" id="option3">
+                    <label for="option3"><img src="./res/temp-attribute-option.svg" alt="" style="height:30px;"
+                            class="attribute-option"></label>
+                    <input type="radio" name="option" id="option4">
+                    <label for="option4"><img src="./res/temp-attribute-option.svg" alt="" style="height:30px;"
+                            class="attribute-option"></label>
+                    <input type="radio" name="option" id="option5">
+                    <label for="option5"><img src="./res/temp-attribute-option.svg" alt="" style="height:30px;"
+                            class="attribute-option"></label>
+                    <input type="radio" name="option" id="option6">
+                    <label for="option6"><img src="./res/temp-attribute-option.svg" alt="" style="height:30px;"
+                            class="attribute-option"></label>
+                    <input type="radio" name="option" id="option7">
+                    <label for="option7"><img src="./res/temp-attribute-option.svg" alt="" style="height:30px;"
+                            class="attribute-option"></label>
+                </form>
+            </section>
+
+
+            <h2>Make New Card</h2>
+            <form id="card-submitter">
+                <menu id="card-creator-inputs">
+                    <li>
+                        <label class="input-titles">Name:</label>
+                        <input type="text" id="input-card-name" class="text-inputs card-attribute-input" name="title">
+                    </li>
+                    <li>
+                        <label class="input-titles">Art:</label>
+                        <label for="input-card-art" class="img-input-button">Upload</label>
+                        <input type="file" id="input-card-art" class="img-input" name="art">
+                    </li>
+                    <li>
+                        <label class="input-titles">Description:</label>
+                        <input type="text" id="input-card-description" class="text-inputs card-attribute-input"
+                            name="description">
+                    </li>
+                </menu>
+                <input type="submit" value="Create Card" id="submit-card" class="submit-button">
+            </form>
+        </aside>
+        <section id="deck">
+            <article>
+                <div class="card-contents">
+                    <section class="card-title-container">
+                        <p class="card-title">Title</p>
+                        <p class="card-subtitle">Subtitle</p>
+                    </section>
+                    <section class="card-side-attributes-container">
+                        <ul class="card-side-attributes">
+                            <li>
+                                <div class="card-attribute-icon">▼</div>
+                                <div class="card-attribute-icon-value">1</div>
+                            </li>
+                            <li>
+                                <div class="card-attribute-icon">▼</div>
+                                <div class="card-attribute-icon-value">1</div>
+                            </li>
+                            <li>
+                                <div class="card-attribute-icon">▼</div>
+                                <div class="card-attribute-icon-value">1</div>
+                            </li>
+                            <li>
+                                <div class="card-attribute-icon">▼</div>
+                                <div class="card-attribute-icon-value">1</div>
+                            </li>
+                            <li>
+                                <div class="card-attribute-icon">▼</div>
+                                <div class="card-attribute-icon-value">1</div>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="card-art-container">
+                    </section>
+                    <section class="card-mid-attributes-container">
+                        <ul class="card-mid-attributes">
+                            <li>
+                                <div class="card-attribute-icon">▼</div>
+                                <div class="card-attribute-icon-value">1</div>
+                            </li>
+                            <li>
+                                <div class="card-attribute-icon">▼</div>
+                                <div class="card-attribute-icon-value">1</div>
+                            </li>
+                            <li>
+                                <div class="card-attribute-icon">▼</div>
+                                <div class="card-attribute-icon-value">1</div>
+                            </li>
+                            <li>
+                                <div class="card-attribute-icon">▼</div>
+                                <div class="card-attribute-icon-value">1</div>
+                            </li>
+                            <li>
+                                <div class="card-attribute-icon">▼</div>
+                                <div class="card-attribute-icon-value">1</div>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="card-type-top-container">
+                        <p class="card-type" name="type">Type</p>
+                    </section>
+                    <section class="card-description-container">
+                        <p class="card-description">
+                            This is a placeholder description for the preview card. It may be deleted later.
+                        </p>
+                    </section>
+                    <section class="card-type-bottom-container">
+                        <p class="card-type" name="type">Type</p>
+                    </section>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="./js/global.js"></script>
     <script src="./js/main.js"></script>
 </body>
+
 </html>

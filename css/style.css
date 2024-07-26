@@ -1,0 +1,324 @@
+:root {
+    --color1: #404040;
+    --color2: #050505;
+    --color3: #1a1a1a;
+    --color4: #3128ad;
+    --color5: #355691;
+
+    --card-width: 250px;
+    --card-height: 350px;
+    --card-border-space: 12px;
+    --card-art-height: 125px;
+    --card-corner-roundness: 15px;
+    --card-description-border-space: 4px;
+    --card-type-border-space: 5px;
+    --card-inner-corner-roundness: 4px;
+    --card-background-art: none;
+    --card-background-color: brown;
+    --card-icon-attributes-background-color: chocolate;
+    --card-containers-background-color: cornsilk;
+    --card-art: url(https://www.bhmpics.com/downloads/madao-Wallpapers/8.madao_gintama_minimalist_by_dark8651_daeqi3i-pre.jpg);
+    --card-title-container-border-space: 3px;
+}
+
+* {
+    font-family: sans-serif;
+    color: beige;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+header {
+    position: sticky;
+    padding: 16px;
+    background-color: var(--color3);
+    top: 0;
+    z-index: 4;
+}
+
+header>h1 {
+    display: flex;
+    justify-content: center;
+
+}
+
+/* --------------------------------------------------------------------------------------------- */
+aside {
+    padding: 16px;
+    height: calc(100vh + 16px);
+    width: 320px;
+    position: fixed;
+    right: 0;
+    background-color: var(--color2);
+    box-shadow: 5px 5px 30px black;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(77, 77, 77) rgb(35, 35, 35);
+}
+
+aside>h2 {
+    font-size: 14pt;
+}
+
+aside form {
+    display: flex;
+    flex-direction: column;
+}
+
+aside form>menu>li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+aside form>menu>li>label {
+    margin-right: 8px;
+    word-wrap: break-word;
+    width: 100px;
+}
+
+aside form>menu>li>label.img-input-button {
+    width: 220px;
+}
+
+aside input.text-inputs {
+    margin: 8px 0;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: rgba(210, 105, 30, 0);
+    background-color: var(--color3);
+    padding: 0 8px;
+    height: 24px;
+    font-size: 12pt;
+    transition: border-color 400ms;
+    outline: none;
+}
+
+aside input.text-inputs:focus-visible {
+    border-color: chocolate;
+    transition: border-color 200ms;
+}
+
+aside form label.img-input-button {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0;
+    border-style: solid;
+    border-radius: 16px;
+    border-color: rgba(210, 105, 30, 0);
+    background-color: var(--color3);
+    padding: 4px 8px;
+    font-size: 12pt;
+    transition: all 500ms;
+    outline: none;
+}
+
+aside form label.img-input-button:hover {
+    transition: all 100ms;
+    background-color: rgb(91, 91, 91);
+}
+
+aside form label.img-input-button:active {
+    transition: all 100ms;
+    background-color: rgb(14, 14, 14);
+}
+
+aside form input.img-input {
+    display: none;
+}
+
+aside form>.submit-button {
+    font-weight: bolder;
+    background-color: chocolate;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 500ms;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+aside form>.submit-button:hover {
+    background-color: rgb(239, 155, 96);
+    transition: background-color 100ms;
+}
+
+aside form>.submit-button:active {
+    background-color: rgb(162, 75, 13);
+    transition: background-color 100ms;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+#attribute-creator>form#new-attribute-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 16px 0px;
+}
+
+#attribute-creator>form#new-attribute-options>input {
+    display: none;
+}
+
+#attribute-creator>form#new-attribute-options input[type="radio"]+label {
+    transition: all 300ms;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+}
+
+#attribute-creator>form#new-attribute-options input[type="radio"]:checked+label {
+    transition: all 300ms;
+    border-color: rgb(255, 255, 255);
+    transform: scale(1.5, 1.5);
+}
+
+/* --------------------------------------------------------------------------------------------- */
+main {
+    /* width: calc(100vw -340px); */
+    min-height: calc(100vh - 32px - 2.226em);
+    background-color: var(--color1);
+}
+
+#deck {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    background-color: var(--color1);
+    padding: 20px;
+    width: calc(100vw - 320px);
+
+}
+
+article {
+    height: var(--card-height);
+    width: var(--card-width);
+    border-radius: var(--card-corner-roundness);
+    background-color: var(--card-background-color);
+    background-image: var(--card-background-art);
+    background-size: cover;
+    box-shadow: 0px 0px 15px -1px black;
+}
+
+article>.card-contents {
+    padding: var(--card-border-space);
+    position: relative;
+    height: calc(var(--card-height) - var(--card-border-space) * 2);
+}
+
+article>.card-contents p {
+    color: black;
+    word-break: break-word;
+}
+
+article>.card-contents>.card-title-container {
+    background-color: var(--card-containers-background-color);
+    border-radius: var(--card-inner-corner-roundness);
+    padding-top: var(--card-title-container-border-space) ;
+    padding-bottom: var(--card-title-container-border-space);
+}
+
+article>.card-contents>section>p.card-title {
+    display: flex;
+    justify-content: center;
+    font-size: 16pt;
+}
+
+article>.card-contents>section>p.card-subtitle {
+    display: flex;
+    justify-content: center;
+    font-size: 10pt;
+}
+
+article>.card-contents>p.card-description {
+    display: flex;
+    justify-content: start;
+    font-size: 11pt;
+}
+
+article>.card-contents>.card-side-attributes-container {
+    position: relative;
+}
+
+article>.card-contents>.card-side-attributes-container>.card-side-attributes {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: var(--card-icon-attributes-background-color);
+    border-radius: var(--card-inner-corner-roundness);
+    width: min-content;
+    height: 150px;
+    padding: 0px 8px;
+    right: 0;
+}
+
+article>.card-contents>.card-mid-attributes-container {
+    display: none;
+    justify-content: center;
+}
+article>.card-contents>.card-mid-attributes-container>.card-mid-attributes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: var(--card-icon-attributes-background-color);
+    border-radius: var(--card-inner-corner-roundness);
+    height: min-content;
+    width: min-content;
+    padding: 5px 5px;
+}
+article>.card-contents>.card-mid-attributes-container>.card-mid-attributes>li {
+    margin: 0px 8px;
+}
+article>.card-contents>section>ul>li {
+    display: flex;
+    flex-direction: row;
+}
+
+article>.card-contents>.card-art-container {
+    height: var(--card-art-height);
+    border-radius: var(--card-inner-corner-roundness);
+    background-image: var(--card-art);
+    background-size: cover;
+}
+
+article>.card-contents .card-type {
+    display: flex;
+    justify-content: center;
+    padding: var(--card-type-border-space);
+}
+
+article>.card-contents>.card-type-top-container {
+    display: flex;
+    justify-content: center;
+    background-color: var(--card-containers-background-color);
+    border-radius: var(--card-inner-corner-roundness);
+    margin: 0px 0px 4px 0px;
+
+}
+
+article>.card-contents>.card-type-bottom-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: calc(var(--card-border-space) - var(--card-type-border-space));
+    width: calc(var(--card-width) - var(--card-border-space) * 2);
+    background-color: var(--card-containers-background-color);
+    border-radius: var(--card-inner-corner-roundness);
+
+}
+
+article>.card-contents>.card-description-container {
+    padding: var(--card-description-border-space);
+    background-color: var(--card-containers-background-color);
+    border-radius: var(--card-inner-corner-roundness);
+    
+}
+
+article>.card-contents>.card-description-container>p {
+    font-size: 11pt;
+}

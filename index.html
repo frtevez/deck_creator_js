@@ -18,12 +18,13 @@
         <aside id="card-creator">
             <section id="attribute-creator">
                 <h2>Add New Attribute</h2>
-                <form id="text-attribute-submitter">
-                    <input type="text" id="input-text-attribute" class="text-inputs">
+                <form id="attribute-submitter">
+                    <div id="new-attribute">
+                        <input type="text" id="input-text-attribute" class="text-inputs">
 
-                    <input type="file" id="input-icon-attribute" class="img-input">
-                    <label for="input-icon-attribute" class="img-input-button">Upload Icon</label>
-
+                        <input type="file" id="input-icon-attribute" class="img-input">
+                        <label for="input-icon-attribute" class="img-input-button">Upload Icon</label>
+                    </div>
                     <input type="submit" value="Add" id="submit-attribute" class="submit-button">
                 </form>
                 <form action="">
@@ -58,29 +59,42 @@
             <form id="card-submitter">
                 <menu id="card-creator-inputs">
                     <li>
-                        <label class="input-titles">Name:</label>
-                        <input type="text" id="input-card-name" class="text-inputs card-attribute-input" name="title">
+                        <label class="input-titles">Title:</label>
+                        <input type="text" id="input-card-title" class="text-inputs card-attribute-input" name="title">
                     </li>
                     <li>
-                        <label class="input-titles">Art:</label>
-                        <label for="input-card-art" class="img-input-button">Upload</label>
-                        <input type="file" id="input-card-art" class="img-input" name="art">
+                        <label class="input-titles">Subtitle:</label>
+                        <input type="text" id="input-card-subtitle" class="text-inputs card-attribute-input"
+                            name="subtitle">
+                    </li>
+                    <li>
+                        <label class="input-titles">Caption:</label>
+                        <input type="text" id="input-card-caption" class="text-inputs card-attribute-input" name="caption">
                     </li>
                     <li>
                         <label class="input-titles">Description:</label>
                         <input type="text" id="input-card-description" class="text-inputs card-attribute-input"
                             name="description">
                     </li>
+                    <li>
+                        <label class="input-titles">Type:</label>
+                        <input type="text" id="input-card-type" class="text-inputs card-attribute-input" name="type">
+                    </li>
+                    <li>
+                        <label class="input-titles">Art:</label>
+                        <label for="input-card-art" class="img-input-button">Upload</label>
+                        <input type="file" id="input-card-art" class="img-input" name="art">
+                    </li>
                 </menu>
                 <input type="submit" value="Create Card" id="submit-card" class="submit-button">
             </form>
         </aside>
         <section id="deck">
-            <article>
+            <article id="template-card">
                 <div class="card-contents">
                     <section class="card-title-container">
-                        <p class="card-title">Title</p>
-                        <p class="card-subtitle">Subtitle</p>
+                        <p class="card-title card-field" name="title">Title</p>
+                        <p class="card-subtitle card-field" name="subtitle">Subtitle</p>
                     </section>
                     <section class="card-side-attributes-container">
                         <ul class="card-side-attributes">
@@ -132,16 +146,16 @@
                             </li>
                         </ul>
                     </section>
-                    <section class="card-type-top-container">
-                        <p class="card-type" name="type">Type</p>
+                    <section class="card-caption-container">
+                        <p class="card-caption card-field" name="caption">Caption</p>
                     </section>
                     <section class="card-description-container">
-                        <p class="card-description">
+                        <p class="card-description card-field" name="description">
                             This is a placeholder description for the preview card. It may be deleted later.
                         </p>
                     </section>
                     <section class="card-type-bottom-container">
-                        <p class="card-type" name="type">Type</p>
+                        <p class="card-type card-field" name="type">Type</p>
                     </section>
                 </div>
             </article>

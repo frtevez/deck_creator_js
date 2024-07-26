@@ -11,7 +11,7 @@
     --card-art-height: 125px;
     --card-corner-roundness: 15px;
     --card-description-border-space: 4px;
-    --card-type-border-space: 5px;
+    --card-type-caption-border-space: 5px;
     --card-inner-corner-roundness: 4px;
     --card-background-art: none;
     --card-background-color: brown;
@@ -63,7 +63,7 @@ aside>h2 {
     font-size: 14pt;
 }
 
-aside form {
+aside form, #new-attribute {
     display: flex;
     flex-direction: column;
 }
@@ -226,12 +226,14 @@ article>.card-contents>section>p.card-title {
     display: flex;
     justify-content: center;
     font-size: 16pt;
+    text-align: center;
 }
 
 article>.card-contents>section>p.card-subtitle {
     display: flex;
     justify-content: center;
     font-size: 10pt;
+    text-align: center;
 }
 
 article>.card-contents>p.card-description {
@@ -286,13 +288,13 @@ article>.card-contents>.card-art-container {
     background-size: cover;
 }
 
-article>.card-contents .card-type {
+article>.card-contents .card-type, article>.card-contents .card-caption {
     display: flex;
     justify-content: center;
-    padding: var(--card-type-border-space);
+    padding: var(--card-type-caption-border-space);
 }
 
-article>.card-contents>.card-type-top-container {
+article>.card-contents>.card-caption-container {
     display: flex;
     justify-content: center;
     background-color: var(--card-containers-background-color);
@@ -305,7 +307,7 @@ article>.card-contents>.card-type-bottom-container {
     display: flex;
     justify-content: center;
     position: absolute;
-    bottom: calc(var(--card-border-space) - var(--card-type-border-space));
+    bottom: calc(var(--card-border-space) - var(--card-type-caption-border-space));
     width: calc(var(--card-width) - var(--card-border-space) * 2);
     background-color: var(--card-containers-background-color);
     border-radius: var(--card-inner-corner-roundness);

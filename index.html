@@ -19,11 +19,8 @@
             <section id="attribute-creator">
                 <h2>Add New Attribute</h2>
                 <form id="attribute-submitter">
-                    <div id="new-attribute">
-                        <input type="text" id="input-text-attribute" class="text-inputs">
-
-                        <input type="file" id="input-icon-attribute" class="img-input">
-                        <label for="input-icon-attribute" class="img-input-button">Upload Icon</label>
+                    <div id="new-attribute-field">
+                        <input type="text" id="input-list-attribute" class="text-inputs" placeholder="This attribute will be listed in description.">
                     </div>
                     <input type="submit" value="Add" id="submit-attribute" class="submit-button">
                 </form>
@@ -42,21 +39,12 @@
                     <input type="radio" name="option" id="option4">
                     <label for="option4"><img src="./res/temp-attribute-option.svg" alt="" style="height:30px;"
                             class="attribute-option"></label>
-                    <input type="radio" name="option" id="option5">
-                    <label for="option5"><img src="./res/temp-attribute-option.svg" alt="" style="height:30px;"
-                            class="attribute-option"></label>
-                    <input type="radio" name="option" id="option6">
-                    <label for="option6"><img src="./res/temp-attribute-option.svg" alt="" style="height:30px;"
-                            class="attribute-option"></label>
-                    <input type="radio" name="option" id="option7">
-                    <label for="option7"><img src="./res/temp-attribute-option.svg" alt="" style="height:30px;"
-                            class="attribute-option"></label>
                 </form>
             </section>
 
 
             <h2>Make New Card</h2>
-            <form id="card-submitter">
+            <form id="card-submitter" onsubmit="return false">
                 <menu id="card-creator-inputs">
                     <li>
                         <label class="input-titles">Title:</label>
@@ -164,6 +152,8 @@
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./js/global.js"></script>
+    <script src="./js/classes.js"></script>
+    <script src="./js/attributeOptions.js"></script>
     <script src="./js/main.js"></script>
 </body>
 

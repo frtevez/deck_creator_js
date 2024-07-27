@@ -1,22 +1,3 @@
-class CardStructure {
-    constructor(title, subtitle, caption, description, type, art, sideAttributes, midAttributes, listAttributes, listIconAttributes) {
-        this.title = title;
-        this.subtitle = subtitle;
-        this.caption = caption;
-        this.description = description;
-        this.type = type;
-        this.art = art;
-        this.sideAttributes = sideAttributes;
-        this.midAttributes = midAttributes;
-        this.listAttributes = listAttributes;
-        this.listIconAttributes = listIconAttributes;
-    };
-
-    set(property, value) {
-        this[property] = value;
-    };
-};
-
 
 let cardPreview = new CardStructure();
 
@@ -27,14 +8,9 @@ console.log(deck);
 const deckContainer = document.querySelector('#deck');
 
 const cardSubmitter = document.querySelector('#card-submitter');
+const cardInputs = document.querySelector("#card-creator-inputs");
 
 const newAttributeOptions = document.querySelector('#new-attribute-options');
-
-newAttributeOptions.addEventListener('change', (e) => {
-
-    let checkedOption = document.querySelector('input[name=option]:checked').id;
-
-});
 
 const updateCardAttributeInputs = () => {
     let cardAttributeInputs = document.querySelectorAll('.card-attribute-input');
@@ -74,4 +50,27 @@ cardSubmitter.addEventListener('submit', (e) => {
     updateDeck()
 });
 
+const newAttributeField = document.querySelector('#new-attribute-field');
+let checkedOption = parseInt(document.querySelector('input[name=option]:checked').id.slice(6) - 1);
 
+newAttributeField.innerHTML = options[checkedOption];
+newAttributeOptions.addEventListener('change', (event) => {
+
+    checkedOption = parseInt(event.target.id.slice(6) - 1);
+    newAttributeField.innerHTML = options[checkedOption];
+});
+
+const attributeSubmitter = document.querySelector("#attribute-submitter");
+attributeSubmitter.addEventListener('submit', event => {
+
+    event.preventDefault()
+    event.target.querySelectorAll('div>input').forEach(input => {
+
+        cardInputs.innerHTML += `
+        <li>
+        <label>${input.value}:</label>
+        <input type="text" id="input-card-" class="text-inputs card-attribute-input" name="title">
+        </li>
+        `
+    })
+})

@@ -47,7 +47,7 @@ header>h1 {
 /* --------------------------------------------------------------------------------------------- */
 aside {
     padding: 16px;
-    height: calc(100vh + 16px);
+    height: calc(100vh - 32px - 36px - 32px);
     width: 320px;
     position: fixed;
     right: 0;
@@ -63,7 +63,7 @@ aside>h2 {
     font-size: 14pt;
 }
 
-aside form, #new-attribute {
+aside form, #new-attribute-field{
     display: flex;
     flex-direction: column;
 }
@@ -104,7 +104,8 @@ aside input.text-inputs:focus-visible {
 
 aside form label.img-input-button {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin: 8px 0;
     border-style: solid;
     border-radius: 16px;

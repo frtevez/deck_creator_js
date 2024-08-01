@@ -1,0 +1,45 @@
+const cardSubmitter = document.querySelector('#card-submitter');
+cardSubmitter.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    deck.push({ ...cardPreview });
+    updateDeck();
+});
+
+const newAttributeField = document.querySelector('#new-attribute-field');
+let checkedOption = parseInt(document.querySelector('input[name=\'option\']:checked').id.slice(6) - 1);
+
+const newAttributeOptions = document.querySelector('#new-attribute-options');
+newAttributeField.innerHTML = options[checkedOption];
+newAttributeOptions.addEventListener('change', (event) => {
+
+    checkedOption = parseInt(event.target.id.slice(6) - 1);
+    newAttributeField.innerHTML = options[checkedOption];
+});
+
+const attributeSubmitter = document.querySelector("#attribute-submitter");
+attributeSubmitter.addEventListener('submit', event => {
+
+    event.preventDefault();
+    event.target.querySelectorAll('#new-attribute-field>input').forEach(input => {
+
+        input.type != 'text' || (input.value = input.value.toLowerCase());
+
+        if (input.value in CardStructure.prototype) {
+            showErrorToast('This attribute already exists!');
+            return;
+        };
+
+        if (input.value == "") {
+            showErrorToast('Invalid! You cannot submit empty attributes!');
+            return;
+        };
+
+        if (!validateWord(input.value) && input.type == 'text') {
+            showErrorToast('Invalid characters. Only letters allowed!');
+            return;
+        };
+        insertNewAttribute(input);
+    });
+    updateCardAttributeInputs();
+});

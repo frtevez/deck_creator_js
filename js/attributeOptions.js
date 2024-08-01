@@ -1,8 +1,8 @@
 const options = [
 
-    `<input type="text" class="text-inputs listAttributes" placeholder="This attribute will be listed in description.">`,
+    `<input type="text" class="text-inputs" placeholder="This attribute will be listed in description." name="listAttributes">`,
 
-    `<input type="file" id="input-icon-attribute" class="img-input listIconAttributes">
+    `<input type="file" id="input-icon-attribute" class="img-input"  name="listIconAttributes">
     <label for="input-icon-attribute" class="img-input-button">
         Upload Icon
         <p style="font-size: 9pt; display: flex; justify-content: center; opacity: .7;">
@@ -10,7 +10,7 @@ const options = [
         </p>
     </label>`,
 
-    `<input type="file" id="input-icon-attribute" class="img-input sideIconAttributes">
+    `<input type="file" id="input-icon-attribute" class="img-input" name="listSideIconAttributes">
     <label for="input-icon-attribute" class="img-input-button">
         Upload Icon
         <p style="font-size: 9pt; display: flex; justify-content: center; opacity: .7;">
@@ -18,7 +18,7 @@ const options = [
         </p>
     </label>`,
 
-    `<input type="file" id="input-icon-attribute" class="img-input midIconAttributes">
+    `<input type="file" id="input-icon-attribute" class="img-input" name="listMidIconAttributes">
     <label for="input-icon-attribute" class="img-input-button">
         Upload Icon
         <p style="font-size: 9pt; display: flex; justify-content: center; opacity: .7;">

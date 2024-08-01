@@ -19,14 +19,16 @@
     --card-containers-background-color: cornsilk;
     --card-art: url(https://www.bhmpics.com/downloads/madao-Wallpapers/8.madao_gintama_minimalist_by_dark8651_daeqi3i-pre.jpg);
     --card-title-container-border-space: 3px;
+    --card-side-attributes-display: flex;
+    --card-mid-attributes-display: flex;
 }
 
 * {
     font-family: sans-serif;
-    color: beige;
     margin: 0;
     padding: 0;
     list-style: none;
+    color: beige;
 }
 
 /* --------------------------------------------------------------------------------------------- */
@@ -63,7 +65,8 @@ aside>h2 {
     font-size: 14pt;
 }
 
-aside form, #new-attribute-field{
+aside form,
+#new-attribute-field {
     display: flex;
     flex-direction: column;
 }
@@ -183,9 +186,11 @@ main {
     /* width: calc(100vw -340px); */
     min-height: calc(100vh - 32px - 2.226em);
     background-color: var(--color1);
+    
 }
 
 #deck {
+    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
@@ -196,6 +201,7 @@ main {
 }
 
 article {
+    color: black;
     height: var(--card-height);
     width: var(--card-width);
     border-radius: var(--card-corner-roundness);
@@ -216,56 +222,62 @@ article>.card-contents p {
     word-break: break-word;
 }
 
-article>.card-contents>.card-title-container {
+article>.card-contents>#card-title-container {
     background-color: var(--card-containers-background-color);
     border-radius: var(--card-inner-corner-roundness);
-    padding-top: var(--card-title-container-border-space) ;
+    padding-top: var(--card-title-container-border-space);
     padding-bottom: var(--card-title-container-border-space);
 }
 
-article>.card-contents>section>p.card-title {
+article>.card-contents>section>p#card-title {
     display: flex;
     justify-content: center;
     font-size: 16pt;
     text-align: center;
 }
 
-article>.card-contents>section>p.card-subtitle {
+article>.card-contents>section>p#card-subtitle {
     display: flex;
     justify-content: center;
     font-size: 10pt;
     text-align: center;
 }
 
-article>.card-contents>p.card-description {
+article>.card-contents ul.card-list-attributes{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+article>.card-contents p#card-description {
     display: flex;
     justify-content: start;
     font-size: 11pt;
 }
 
-article>.card-contents>.card-side-attributes-container {
+article>.card-contents>#card-side-attributes-container {
     position: relative;
-    display: none;
 }
 
-article>.card-contents>.card-side-attributes-container>.card-side-attributes {
+article>.card-contents>#card-side-attributes-container>#card-side-attributes {
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     background-color: var(--card-icon-attributes-background-color);
     border-radius: var(--card-inner-corner-roundness);
     width: min-content;
-    height: 150px;
-    padding: 0px 8px;
+    height: max-content;
+    padding: 4px 4px;
     right: 0;
 }
 
-article>.card-contents>.card-mid-attributes-container {
-    display: none;
+article>.card-contents>#card-mid-attributes-container {
+    display: flex;
     justify-content: center;
 }
-article>.card-contents>.card-mid-attributes-container>.card-mid-attributes {
+
+article>.card-contents>#card-mid-attributes-container>#card-mid-attributes {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -275,28 +287,32 @@ article>.card-contents>.card-mid-attributes-container>.card-mid-attributes {
     width: min-content;
     padding: 5px 5px;
 }
-article>.card-contents>.card-mid-attributes-container>.card-mid-attributes>li {
+
+article>.card-contents>#card-mid-attributes-container>#card-mid-attributes>li {
     margin: 0px 8px;
 }
+
 article>.card-contents>section>ul>li {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
-article>.card-contents>.card-art-container {
+article>.card-contents>#card-art-container {
     height: var(--card-art-height);
     border-radius: var(--card-inner-corner-roundness);
     background-image: var(--card-art);
     background-size: cover;
 }
 
-article>.card-contents .card-type, article>.card-contents .card-caption {
+article>.card-contents #card-type,
+article>.card-contents #card-caption {
     display: flex;
     justify-content: center;
     padding: var(--card-type-caption-border-space);
 }
 
-article>.card-contents>.card-caption-container {
+article>.card-contents>#card-caption-container {
     display: flex;
     justify-content: center;
     background-color: var(--card-containers-background-color);
@@ -305,7 +321,7 @@ article>.card-contents>.card-caption-container {
 
 }
 
-article>.card-contents>.card-type-bottom-container {
+article>.card-contents>#card-type-container {
     display: flex;
     justify-content: center;
     position: absolute;
@@ -316,13 +332,15 @@ article>.card-contents>.card-type-bottom-container {
 
 }
 
-article>.card-contents>.card-description-container {
+article>.card-contents>#card-description-container {
     padding: var(--card-description-border-space);
     background-color: var(--card-containers-background-color);
     border-radius: var(--card-inner-corner-roundness);
-    
+
 }
 
-article>.card-contents>.card-description-container>p {
+article>.card-contents>#card-description-container>p {
     font-size: 11pt;
 }
+
+.card-field, .card-listed-attribute>label {color: black;}

@@ -196,7 +196,7 @@ main {
     gap: 10px;
     background-color: var(--color1);
     padding: 20px;
-    width: calc(100vw - 320px);
+    width: calc(100vw - 320px - 10px * 4);
 
 }
 

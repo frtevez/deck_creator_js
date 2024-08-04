@@ -1,4 +1,3 @@
 
-console.log(deck);
-
+updateDeck();
 updateCardAttributeInputs();

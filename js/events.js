@@ -8,8 +8,8 @@ cardSubmitter.addEventListener('submit', (e) => {
 
 const newAttributeField = document.querySelector('#new-attribute-field');
 let checkedOption = parseInt(document.querySelector('input[name=\'option\']:checked').id.slice(6) - 1);
-
 const newAttributeOptions = document.querySelector('#new-attribute-options');
+
 newAttributeField.innerHTML = options[checkedOption];
 newAttributeOptions.addEventListener('change', (event) => {
 

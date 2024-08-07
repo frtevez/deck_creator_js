@@ -11,32 +11,41 @@ const updateCardAttributeInputs = () => {
     let cardAttributeInputs = document.querySelectorAll('.card-attribute-input');
     cardAttributeInputs.forEach(attributeInput => {
 
-        // console.log(attributeInput.name);
         let cardField = document.querySelector(`#template-card .card-field[name=\"${attributeInput.name}\"]`);
-        // console.log(cardField);
         attributeInput.addEventListener('input', (event) => {
 
-            cardPreview.set(attributeInput.name, event.target.value);
-            cardField.innerHTML = event.target.value;
+            let input = event.target;
+
+            if (input.type == 'file') {
+                let file = URL.createObjectURL(input.files[0]);
+                cardPreview.set(attributeInput.name, file);
+                cardField.src = file;
+                return;
+            }
+
+            cardPreview.set(attributeInput.name, input.value);
+            cardField.innerHTML = input.value;
         });
     });
-
-
 };
 
 
 const updateDeck = () => {
     deck.forEach((card, index) => {
 
-        if (document.querySelector(`#card${index}`) != null) {return};
+        if (document.querySelector(`#card${index}`) != null) { return };
 
         let cardTemplate = document.querySelector('#template-card');
-    
+
         deckContainer.innerHTML += cardTemplate.outerHTML.replace('id=\"template-card\"', `id=\"card${index}\"`);
         for (let property in card) {
-            
+
             propertyInDOM = document.querySelector(`#card${index} [name=\"${property}\"]`);
-            if (propertyInDOM == null) {continue};
+            if (propertyInDOM == null) { continue };
+            if (property == "art") { 
+                propertyInDOM.src = card[property];
+                return
+            }
             propertyInDOM.innerHTML = card[property];
         };
     });

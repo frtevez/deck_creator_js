@@ -211,6 +211,14 @@ article {
     box-shadow: 0px 0px 15px -1px black;
 }
 
+article#template-card {
+    border-style: none;
+    border-color: white;
+    border-collapse: separate;
+    box-shadow: 0px 0px 15px 12px white;
+
+}
+
 article>.card-contents {
     padding: var(--card-border-space);
     position: relative;
@@ -223,10 +231,12 @@ article>.card-contents p {
 }
 
 article>.card-contents>#card-title-container {
+    position: relative;
     background-color: var(--card-containers-background-color);
     border-radius: var(--card-inner-corner-roundness);
     padding-top: var(--card-title-container-border-space);
     padding-bottom: var(--card-title-container-border-space);
+    z-index: 1;
 }
 
 article>.card-contents>section>p#card-title {
@@ -257,6 +267,7 @@ article>.card-contents p#card-description {
 
 article>.card-contents>#card-side-attributes-container {
     position: relative;
+    z-index: 1;
 }
 
 article>.card-contents>#card-side-attributes-container>#card-side-attributes {
@@ -273,8 +284,10 @@ article>.card-contents>#card-side-attributes-container>#card-side-attributes {
 }
 
 article>.card-contents>#card-mid-attributes-container {
+    position: relative;
     display: flex;
     justify-content: center;
+    z-index: 1;
 }
 
 article>.card-contents>#card-mid-attributes-container>#card-mid-attributes {
@@ -298,11 +311,25 @@ article>.card-contents>section>ul>li {
     align-items: center;
 }
 
+
 article>.card-contents>#card-art-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    height: var(--card-art-height);
+    width: calc(var(--card-width) - var(--card-border-space)*2);
+    overflow: hidden;
+    z-index: 0;
+}
+
+article>.card-contents>#card-art-container>img {
     height: var(--card-art-height);
     border-radius: var(--card-inner-corner-roundness);
-    background-image: var(--card-art);
-    background-size: cover;
+    object-fit:cover;
+    
 }
 
 article>.card-contents #card-type,
@@ -313,11 +340,13 @@ article>.card-contents #card-caption {
 }
 
 article>.card-contents>#card-caption-container {
+    position: relative;
     display: flex;
     justify-content: center;
     background-color: var(--card-containers-background-color);
     border-radius: var(--card-inner-corner-roundness);
     margin: 0px 0px 4px 0px;
+    z-index: 1;
 
 }
 
@@ -329,14 +358,16 @@ article>.card-contents>#card-type-container {
     width: calc(var(--card-width) - var(--card-border-space) * 2);
     background-color: var(--card-containers-background-color);
     border-radius: var(--card-inner-corner-roundness);
+    z-index: 1;
 
 }
 
 article>.card-contents>#card-description-container {
+    position: relative;
     padding: var(--card-description-border-space);
     background-color: var(--card-containers-background-color);
     border-radius: var(--card-inner-corner-roundness);
-
+    z-index: 1;
 }
 
 article>.card-contents>#card-description-container>p {

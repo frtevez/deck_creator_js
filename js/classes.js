@@ -10,6 +10,8 @@ class CardStructure {
         this.listMidIconAttributes = [];
         this.listAttributes = [];
         this.listIconAttributes = [];
+
+        this.artIsBackground = true;
     };
 
     set(property, value) {

@@ -7,7 +7,6 @@ const deckContainer = document.querySelector('#deck');
 
 const updateCardAttributeInputs = () => {
 
-
     let cardAttributeInputs = document.querySelectorAll('.card-attribute-input');
     cardAttributeInputs.forEach(attributeInput => {
 
@@ -29,6 +28,24 @@ const updateCardAttributeInputs = () => {
     });
 };
 
+const updateCard = (card, index) => {
+    for (let property in card) {
+
+        propertyInDOM = document.querySelector(`#card${index} [name=\"${property}\"]`);
+        cardInDOM = document.querySelector(`#card${index}`);
+        
+        if (propertyInDOM == null) { continue };
+        if (property == "art"){
+            propertyInDOM.src = card[property]
+            !card['artIsBackground'] || (
+                cardInDOM.style.backgroundImage = `url(${card[property]})`, 
+                propertyInDOM.style.visibility = "hidden"
+            );
+            return
+        }
+        propertyInDOM.innerHTML = card[property];
+    };
+}
 
 const updateDeck = () => {
     deck.forEach((card, index) => {
@@ -38,16 +55,7 @@ const updateDeck = () => {
         let cardTemplate = document.querySelector('#template-card');
 
         deckContainer.innerHTML += cardTemplate.outerHTML.replace('id=\"template-card\"', `id=\"card${index}\"`);
-        for (let property in card) {
-
-            propertyInDOM = document.querySelector(`#card${index} [name=\"${property}\"]`);
-            if (propertyInDOM == null) { continue };
-            if (property == "art") { 
-                propertyInDOM.src = card[property];
-                return
-            }
-            propertyInDOM.innerHTML = card[property];
-        };
+        updateCard(card, index)
     });
     sessionStorage.setItem('deck', JSON.stringify(deck))
     updateCardAttributeInputs()

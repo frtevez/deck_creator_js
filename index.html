@@ -20,7 +20,8 @@
                 <h2>Add New Attribute</h2>
                 <form id="attribute-submitter">
                     <div id="new-attribute-field">
-                        <input type="text" id="input-list-attribute" class="text-inputs" placeholder="This attribute will be listed in description.">
+                        <input type="text" id="input-list-attribute" class="text-inputs"
+                            placeholder="This attribute will be listed in description.">
                     </div>
                     <input type="submit" value="Add" id="submit-attribute" class="submit-button">
                 </form>
@@ -57,7 +58,8 @@
                     </li>
                     <li>
                         <label class="input-titles">Caption:</label>
-                        <input type="text" id="input-card-caption" class="text-inputs card-attribute-input" name="caption">
+                        <input type="text" id="input-card-caption" class="text-inputs card-attribute-input"
+                            name="caption">
                     </li>
                     <li>
                         <label class="input-titles">Description:</label>
@@ -77,6 +79,25 @@
                 <input type="submit" value="Create Card" id="submit-card" class="submit-button">
             </form>
         </aside>
+
+        <input type="checkbox" id="editor-switch-checkbox" style="display: none;">
+        <label for="editor-switch-checkbox" id="editor-switch-checkbox-label">STYLE</label>
+
+        <aside id="deck-style-editor">
+            <form id="deck-style">
+                <menu id="deck-style-inputs">
+                    <li>
+                        <label>Background:</label>
+                        <input type="color" id="card-background" value="#a52a2a">
+                    </li>
+                    <li>
+                        <label>Containers' Color:</label>
+                        <input type="color" id="containers-color" value="#fff8dc">
+                    </li>
+                </menu>
+            </form>
+
+        </aside>
         <section id="deck">
             <article id="template-card">
                 <div class="card-contents">
@@ -88,8 +109,9 @@
                         <ul id="card-side-attributes" class="listSideIconAttributes">
                         </ul>
                     </section>
-                    <section id="card-art-container" >
-                        <img src="https://www.bhmpics.com/downloads/madao-Wallpapers/8.madao_gintama_minimalist_by_dark8651_daeqi3i-pre.jpg" class="card-field" name="art" alt="">
+                    <section id="card-art-container">
+                        <img src="https://www.bhmpics.com/downloads/madao-Wallpapers/8.madao_gintama_minimalist_by_dark8651_daeqi3i-pre.jpg"
+                            class="card-field" name="art" alt="">
                     </section>
                     <section id="card-mid-attributes-container">
                         <ul id="card-mid-attributes" class="listMidIconAttributes">
@@ -99,7 +121,7 @@
                         <p id="card-caption" class="card-field" name="caption">Caption</p>
                     </section>
                     <section id="card-description-container">
-                        <ul class="card-list-attributes listAttributes listIconAttributes">         
+                        <ul class="card-list-attributes listAttributes listIconAttributes">
                         </ul>
                         <p id="card-description" class="card-field" name="description">
                             This is a placeholder description for the preview card. It may be deleted later.

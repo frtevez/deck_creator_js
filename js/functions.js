@@ -1,5 +1,6 @@
 
 let deck = JSON.parse(sessionStorage.getItem("deck")) || [];
+let deckStyle = JSON.parse(sessionStorage.getItem("deckStyle")) || {};
 
 let cardPreview = new CardStructure();
 
@@ -33,12 +34,12 @@ const updateCard = (card, index) => {
 
         propertyInDOM = document.querySelector(`#card${index} [name=\"${property}\"]`);
         cardInDOM = document.querySelector(`#card${index}`);
-        
+
         if (propertyInDOM == null) { continue };
-        if (property == "art"){
+        if (property == "art") {
             propertyInDOM.src = card[property]
             !card['artIsBackground'] || (
-                cardInDOM.style.backgroundImage = `url(${card[property]})`, 
+                cardInDOM.style.backgroundImage = `url(${card[property]})`,
                 propertyInDOM.style.visibility = "hidden"
             );
             return
@@ -60,6 +61,19 @@ const updateDeck = () => {
     sessionStorage.setItem('deck', JSON.stringify(deck))
     updateCardAttributeInputs()
 };
+
+const loadDeckStyle = () => {
+    if (JSON.parse(sessionStorage.getItem("deckStyle")) == ''){return}
+    
+    for (let property in deckStyle) {
+        cssRoot.setProperty(property, deckStyle[property])
+        console.log('loop');
+    }
+}
+
+const updateDeckStyle = () => {
+    sessionStorage.setItem('deckStyle', JSON.stringify(deckStyle))
+}
 
 const cardInputs = document.querySelector("#card-creator-inputs");
 const insertNewAttribute = input => {

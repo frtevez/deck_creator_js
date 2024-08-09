@@ -10,13 +10,37 @@
     --card-border-space: 12px;
     --card-art-height: 125px;
     --card-corner-roundness: 15px;
+
     --card-description-border-space: 4px;
     --card-type-caption-border-space: 5px;
     --card-inner-corner-roundness: 4px;
-    --card-background-art: none;
+
     --card-background-color: #a52a2a;
+    --card-background-art: none;
+    --card-background-art-fit: cover;
+
     --card-icon-attributes-background-color: chocolate;
-    --card-containers-background-color: #fff8dc;
+
+    --card-containers-color: #fff8dc;
+    --card-containers-art: none;
+    --card-containers-art-fit: 100% 100%;
+
+    --card-title-container-color: #fff8dc;
+    --card-title-container-art: '';
+    --card-title-container-art-fit: 100% 100%;
+
+    --card-caption-container-color: #fff8dc;
+    --card-caption-container-art: '';
+    --card-caption-container-art-fit: 100% 100%;
+    
+    --card-description-container-color: #fff8dc;
+    --card-description-container-art: '';
+    --card-description-container-art-fit: 100% 100%;
+
+    --card-type-container-color: #fff8dc;
+    --card-type-container-art: '';
+    --card-type-container-art-fit: 100% 100%;
+
     --card-art: url(https://www.bhmpics.com/downloads/madao-Wallpapers/8.madao_gintama_minimalist_by_dark8651_daeqi3i-pre.jpg);
     --card-title-container-border-space: 3px;
     --card-side-attributes-display: flex;
@@ -44,6 +68,8 @@ header {
 header>h1 {
     display: flex;
     justify-content: center;
+    font-weight: lighter;
+    letter-spacing: 6px;
 
 }
 
@@ -225,15 +251,28 @@ input[type="color"] {
     width: 35px;
     height: 35px;
     clip-path: circle(12px);
+    transition: all 300ms;
 }
 
-aside form#deck-style>#deck-style-inputs{
+input[type="color"]:hover {
+    transition-timing-function: cubic-bezier(.64,.04,.45,2.04);
+    transition-duration: 200ms;
+    transform: scale(1.3);
+}
+input[type="color"]:active{
+    transition: all 100ms;
+    filter: brightness(.3);
+    transform: scale(1.1);
+}
+
+
+aside form#deck-style>#deck-style-inputs {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-aside form#deck-style>#deck-style-inputs>li {
+aside form#deck-style>#deck-style-inputs>li:not(.deck-style-buttons) {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -246,6 +285,44 @@ aside form#deck-style>#deck-style-inputs>li {
 
 aside form#deck-style>#deck-style-inputs>li>label {
     width: max-content;
+}
+
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-file-upload {
+    background-color: var(--color1);
+    border-radius: 20px;
+    padding: 6px;
+    padding-bottom: 3px;
+    transition: all 300ms;
+}
+
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-file-upload:hover {
+    background-color: hsl(from var(--color1) h s calc(l*1.3));
+    transition: all 100ms;
+}
+
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-file-upload:active {
+    transition: all 100ms;
+    background-color: hsl(from var(--color1) h s calc(l*0.7));
+}
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-file-upload>img{
+    filter: invert(.9);
+}
+
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-button {
+    background-color: var(--color2);
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 300ms;
+}
+
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-button:hover {
+    background-color: hsl(from var(--color2) h s calc(l*1.3));
+    transition: all 100ms;
+}
+
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-button:active {
+    transition: all 100ms;
+    background-color: hsl(from var(--color1) h s calc(l*0.7));
 }
 
 /* --------------------------------------------------------------------------------------------- */
@@ -291,6 +368,7 @@ main {
     background-color: var(--color1);
     padding: 20px;
     width: calc(100vw - 320px - 10px * 4);
+    transition: all 300ms;
 
 }
 
@@ -301,10 +379,9 @@ article {
     border-radius: var(--card-corner-roundness);
     background-color: var(--card-background-color);
     background-image: var(--card-background-art);
-    background-size: cover;
+    background-size: var(--card-background-art-fit);
     box-shadow: 0px 0px 15px -1px black;
     background-position: center center;
-    background-size: cover;
 }
 
 article#template-card {
@@ -328,7 +405,9 @@ article>.card-contents p {
 
 article>.card-contents>#card-title-container {
     position: relative;
-    background-color: var(--card-containers-background-color);
+    background-color: var(--card-containers-color);
+    background-image: var(--card-containers-art);
+    background-size: var(--card-containers-art-fit);
     border-radius: var(--card-inner-corner-roundness);
     padding-top: var(--card-title-container-border-space);
     padding-bottom: var(--card-title-container-border-space);
@@ -440,7 +519,9 @@ article>.card-contents>#card-caption-container {
     position: relative;
     display: flex;
     justify-content: center;
-    background-color: var(--card-containers-background-color);
+    background-color: var(--card-containers-color);
+    background-image: var(--card-containers-art);
+    background-size: var(--card-containers-art-fit);
     border-radius: var(--card-inner-corner-roundness);
     margin: 0px 0px 4px 0px;
     z-index: 1;
@@ -453,7 +534,9 @@ article>.card-contents>#card-type-container {
     position: absolute;
     bottom: calc(var(--card-border-space) - var(--card-type-caption-border-space));
     width: calc(var(--card-width) - var(--card-border-space) * 2);
-    background-color: var(--card-containers-background-color);
+    background-color: var(--card-containers-color);
+    background-image: var(--card-containers-art);
+    background-size: var(--card-containers-art-fit);
     border-radius: var(--card-inner-corner-roundness);
     z-index: 1;
 
@@ -462,7 +545,9 @@ article>.card-contents>#card-type-container {
 article>.card-contents>#card-description-container {
     position: relative;
     padding: var(--card-description-border-space);
-    background-color: var(--card-containers-background-color);
+    background-color: var(--card-containers-color);
+    background-image: var(--card-containers-art);
+    background-size: var(--card-containers-art-fit);
     border-radius: var(--card-inner-corner-roundness);
     z-index: 1;
 }

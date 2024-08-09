@@ -43,3 +43,23 @@ attributeSubmitter.addEventListener('submit', event => {
     });
     updateCardAttributeInputs();
 });
+
+
+document.querySelectorAll('.deck-style-input').forEach(input => {
+    
+    input.addEventListener('input', (event) => {
+
+        let propertyValue = event.target.value
+        if (event.target.type == 'file') {
+            propertyValue = `url(${URL.createObjectURL(event.target.files[0])})`
+        }
+
+        deckStyle[input.name] = propertyValue
+
+        cssRoot.setProperty(input.name, propertyValue)
+        console.log('preview');
+        
+        
+        updateDeckStyle()
+    })
+})

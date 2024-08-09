@@ -1,3 +1,4 @@
 
 updateDeck();
+loadDeckStyle();
 updateCardAttributeInputs();

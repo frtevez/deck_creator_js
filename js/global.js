@@ -39,3 +39,5 @@ function showErrorToast(error) {
         },
     }).showToast();
 };
+
+const cssRoot = document.documentElement.style

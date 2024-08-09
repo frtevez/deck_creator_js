@@ -3,6 +3,7 @@ let deck = JSON.parse(sessionStorage.getItem("deck")) || [];
 let deckStyle = JSON.parse(sessionStorage.getItem("deckStyle")) || {};
 
 let cardPreview = new CardStructure();
+let cardTemplate = document.querySelector('#template-card');
 
 const deckContainer = document.querySelector('#deck');
 
@@ -20,14 +21,39 @@ const updateCardAttributeInputs = () => {
                 let file = URL.createObjectURL(input.files[0]);
                 cardPreview.set(attributeInput.name, file);
                 cardField.src = file;
+                artDisplayStyle()
                 return;
             }
+
 
             cardPreview.set(attributeInput.name, input.value);
             cardField.innerHTML = input.value;
         });
     });
 };
+
+const artDisplayStyle = () => {
+    
+    // setTimeout to give browser time to compute style
+    setTimeout(() => {
+        
+        let artIsBackground = (getComputedStyle(document.documentElement).getPropertyValue("--art-is-background") === 'true')
+        if (artIsBackground) {
+            document.querySelectorAll("article.card").forEach(card => {
+                
+                let imgElement = card.querySelector(`#card-art-container img`)
+                card.style.backgroundImage = `url(${imgElement.src})`
+                imgElement.style.visibility = "hidden"
+            })
+            return
+        }
+        document.querySelectorAll("article.card").forEach(card => {
+            let imgElement = card.querySelector(`#card-art-container img`)
+            card.style.backgroundImage = "none"
+            imgElement.style.visibility = "visible"
+        })
+    }, 0)
+}
 
 const updateCard = (card, index) => {
     for (let property in card) {
@@ -38,10 +64,6 @@ const updateCard = (card, index) => {
         if (propertyInDOM == null) { continue };
         if (property == "art") {
             propertyInDOM.src = card[property]
-            !card['artIsBackground'] || (
-                cardInDOM.style.backgroundImage = `url(${card[property]})`,
-                propertyInDOM.style.visibility = "hidden"
-            );
             return
         }
         propertyInDOM.innerHTML = card[property];
@@ -53,8 +75,6 @@ const updateDeck = () => {
 
         if (document.querySelector(`#card${index}`) != null) { return };
 
-        let cardTemplate = document.querySelector('#template-card');
-
         deckContainer.innerHTML += cardTemplate.outerHTML.replace('id=\"template-card\"', `id=\"card${index}\"`);
         updateCard(card, index)
     });
@@ -63,16 +83,15 @@ const updateDeck = () => {
 };
 
 const loadDeckStyle = () => {
-    if (JSON.parse(sessionStorage.getItem("deckStyle")) == ''){return}
-    
+    if (JSON.parse(sessionStorage.getItem("deckStyle")) == '') { return }
+
     for (let property in deckStyle) {
         cssRoot.setProperty(property, deckStyle[property])
-        console.log('loop');
     }
 }
 
 const updateDeckStyle = () => {
-    sessionStorage.setItem('deckStyle', JSON.stringify(deckStyle))
+    sessionStorage.setItem('deckStyle', JSON.stringify(deckStyle));
 }
 
 const cardInputs = document.querySelector("#card-creator-inputs");

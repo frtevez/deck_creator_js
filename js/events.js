@@ -46,20 +46,22 @@ attributeSubmitter.addEventListener('submit', event => {
 
 
 document.querySelectorAll('.deck-style-input').forEach(input => {
-    
+
     input.addEventListener('input', (event) => {
 
-        let propertyValue = event.target.value
-        if (event.target.type == 'file') {
-            propertyValue = `url(${URL.createObjectURL(event.target.files[0])})`
-        }
+        let propertyValue = event.target.value;
 
-        deckStyle[input.name] = propertyValue
+        event.target.type != 'file' || (propertyValue = `url(${URL.createObjectURL(event.target.files[0])})`);
 
-        cssRoot.setProperty(input.name, propertyValue)
-        console.log('preview');
-        
-        
-        updateDeckStyle()
+        deckStyle[input.name] = propertyValue;
+
+        cssRoot.setProperty(input.name, propertyValue);
+        updateDeckStyle();
+    })
+})
+
+document.querySelectorAll(`input[name="--art-is-background"]`).forEach(input => {
+    input.addEventListener('click', () => {
+        artDisplayStyle()
     })
 })

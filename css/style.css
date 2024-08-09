@@ -10,6 +10,7 @@
     --card-border-space: 12px;
     --card-art-height: 125px;
     --card-corner-roundness: 15px;
+    --art-is-background:true;
 
     --card-description-border-space: 4px;
     --card-type-caption-border-space: 5px;
@@ -19,7 +20,14 @@
     --card-background-art: none;
     --card-background-art-fit: cover;
 
-    --card-icon-attributes-background-color: chocolate;
+    --card-side-icons-color: #d2691e;
+    --card-side-icons-art: '';
+    --card-side-icons-art-fit: 100% 100%;
+    --card-side-icons-side: none;
+
+    --card-mid-icons-color: chocolate;
+    --card-mid-icons-art: '';
+    --card-mid-icons-art-fit: 100% 100%;
 
     --card-containers-color: #fff8dc;
     --card-containers-art: none;
@@ -190,7 +198,6 @@ aside#deck-style-editor {
     background-color: var(--color4);
     transform: translateX(354px);
     box-shadow: none;
-    overflow: visible;
     transition: all 400ms;
     border: solid 2px #ffffff00;
     border-right: none;
@@ -281,6 +288,10 @@ aside form#deck-style>#deck-style-inputs>li:not(.deck-style-buttons) {
     padding: 8px 20px;
     margin: 10px 5px;
     width: min-content;
+}
+
+aside form#deck-style>#deck-style-inputs>li.deck-style-buttons {
+    margin: 0 0 10px 0;
 }
 
 aside form#deck-style>#deck-style-inputs>li>label {
@@ -450,12 +461,15 @@ article>.card-contents>#card-side-attributes-container>#card-side-attributes {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-color: var(--card-icon-attributes-background-color);
+    background-color: var(--card-side-icons-color);
+    background-image: var(--card-side-icons-art);
+    background-size: var(--card-side-icons-art-fit);
     border-radius: var(--card-inner-corner-roundness);
     width: min-content;
     height: max-content;
     padding: 4px 4px;
     right: 0;
+    left: var(--card-side-icons-side);
 }
 
 article>.card-contents>#card-mid-attributes-container {
@@ -469,7 +483,9 @@ article>.card-contents>#card-mid-attributes-container>#card-mid-attributes {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: var(--card-icon-attributes-background-color);
+    background-color: var(--card-mid-icons-color);
+    background-image: var(--card-mid-icons-art);
+    background-size: var(--card-mid-icons-art-fit);
     border-radius: var(--card-inner-corner-roundness);
     height: min-content;
     width: min-content;

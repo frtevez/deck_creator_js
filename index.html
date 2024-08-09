@@ -90,7 +90,7 @@
                         <label>Background:</label>
                         <input type="color" id="card-background-color" value="#a52a2a" class="deck-style-input"
                             name="--card-background-color">
-                        <input type="file" id="card-background-art" value="#a52a2a" class="deck-style-input"
+                        <input type="file" id="card-background-art" class="deck-style-input"
                             name="--card-background-art" style="display: none;">
                         <label for="card-background-art" class="deck-style-file-upload"><img src="./res/upload-icon.svg"
                                 alt=""></label>
@@ -102,14 +102,14 @@
                         <label for="card-background-art-stretch" class="deck-style-button">Stretch Image</label>
 
                         <input type="radio" name="--card-background-art-fit" id="card-background-art-resize"
-                            value="cover" class="deck-style-input" style="display: none;">
+                            value="cover" class="deck-style-input" style="display: none;" checked>
                         <label for="card-background-art-resize" class="deck-style-button">Resize Image</label>
                     </li>
                     <li>
                         <label>Containers:</label>
                         <input type="color" id="card-containers-color" value="#fff8dc" class="deck-style-input"
                             name="--card-containers-color">
-                        <input type="file" id="card-containers-art" value="#fff8dc" class="deck-style-input"
+                        <input type="file" id="card-containers-art" class="deck-style-input"
                             name="--card-containers-art" style="display: none;">
                         <label for="card-containers-art" class="deck-style-file-upload"><img src="./res/upload-icon.svg"
                                 alt=""></label>
@@ -117,19 +117,78 @@
                     <li class="deck-style-buttons">
 
                         <input type="radio" name="--card-containers-art-fit" id="card-containers-art-stretch"
-                            value="100% 100%" class="deck-style-input" style="display: none;">
+                            value="100% 100%" class="deck-style-input" style="display: none;" checked>
                         <label for="card-containers-art-stretch" class="deck-style-button">Stretch Image</label>
 
                         <input type="radio" name="--card-containers-art-fit" id="card-containers-art-resize"
                             value="cover" class="deck-style-input" style="display: none;">
                         <label for="card-containers-art-resize" class="deck-style-button">Resize Image</label>
                     </li>
+                    <li>
+                        <label>Side Icons:</label>
+                        <input type="color" id="card-side-icons-color" value="#d2691e" class="deck-style-input"
+                            name="--card-side-icons-color">
+                        <input type="file" id="card-side-icons-art" class="deck-style-input"
+                            name="--card-side-icons-art" style="display: none;">
+                        <label for="card-side-icons-art" class="deck-style-file-upload"><img src="./res/upload-icon.svg"
+                                alt=""></label>
+                    </li>
+                    <li class="deck-style-buttons">
+
+                        <input type="radio" name="--card-side-icons-art-fit" id="card-side-icons-art-stretch"
+                            value="100% 100%" class="deck-style-input" style="display: none;" checked>
+                        <label for="card-side-icons-art-stretch" class="deck-style-button">Stretch Image</label>
+
+                        <input type="radio" name="--card-side-icons-art-fit" id="card-side-icons-art-resize"
+                            value="cover" class="deck-style-input" style="display: none;">
+                        <label for="card-side-icons-art-resize" class="deck-style-button">Resize Image</label>
+                    </li>
+                    <li class="deck-style-buttons">
+
+                        <input type="radio" name="--card-side-icons-side" id="card-side-icons-left" value="0"
+                            class="deck-style-input" style="display: none;">
+                        <label for="card-side-icons-left" class="deck-style-button">Left Side</label>
+
+                        <input type="radio" name="--card-side-icons-side" id="card-side-icons-art-right" value="none"
+                            class="deck-style-input" style="display: none;" checked>
+                        <label for="card-side-icons-art-right" class="deck-style-button">Right Side</label>
+                    </li>
+                    <li>
+                        <label>Middle Icons:</label>
+                        <input type="color" id="card-mid-icons-color" value="#d2691e" class="deck-style-input"
+                            name="--card-mid-icons-color">
+                        <input type="file" id="card-mid-icons-art" class="deck-style-input" name="--card-mid-icons-art"
+                            style="display: none;">
+                        <label for="card-mid-icons-art" class="deck-style-file-upload"><img src="./res/upload-icon.svg"
+                                alt=""></label>
+                    </li>
+                    <li class="deck-style-buttons">
+
+                        <input type="radio" name="--card-mid-icons-art-fit" id="card-mid-icons-art-stretch"
+                            value="100% 100%" class="deck-style-input" style="display: none;" checked>
+                        <label for="card-mid-icons-art-stretch" class="deck-style-button">Stretch Image</label>
+
+                        <input type="radio" name="--card-mid-icons-art-fit" id="card-mid-icons-art-resize" value="cover"
+                            class="deck-style-input" style="display: none;">
+                        <label for="card-mid-icons-art-resize" class="deck-style-button">Resize Image</label>
+                    </li>
+                    <li><label>Art Display Style</label></li>
+                    <li class="deck-style-buttons">
+
+                        <input type="radio" name="--art-is-background" id="art-display-style-framed" value="false"
+                            class="deck-style-input" style="display: none;" checked>
+                        <label for="art-display-style-framed" class="deck-style-button">Framed</label>
+
+                        <input type="radio" name="--art-is-background" id="art-display-style-background" value="true"
+                            class="deck-style-input" style="display: none;">
+                        <label for="art-display-style-background" class="deck-style-button">Background</label>
+                    </li>
                 </menu>
             </form>
 
         </aside>
         <section id="deck">
-            <article id="template-card">
+            <article id="template-card" class="card">
                 <div class="card-contents">
                     <section id="card-title-container">
                         <p id="card-title" class="card-field" name="title">Title</p>

@@ -39,7 +39,7 @@ attributeSubmitter.addEventListener('submit', event => {
             showErrorToast('Invalid characters. Only letters allowed!');
             return;
         };
-        insertNewAttribute(input);
+        insertNewAttribute(input, cardTemplate);
     });
     updateCardAttributeInputs();
 });

@@ -77,7 +77,7 @@ const updateDeck = () => {
         
         let newCard = cardTemplate.cloneNode(true)
         newCard.id = `card${index}`
-        
+
         deckContainer.appendChild(newCard)
         updateCard(card, index)
     });
@@ -98,10 +98,8 @@ const updateDeckStyle = () => {
 }
 
 const cardInputs = document.querySelector("#card-creator-inputs");
-const insertNewAttribute = input => {
-
-    addPropertyToConstructor(input.value, CardStructure);
-
+const insertNewAttribute = (input, card) => {
+    
     let inputLabel = input.value;
     let inputName = input.value;
 
@@ -119,7 +117,7 @@ const insertNewAttribute = input => {
         <input type="text" class="text-inputs card-attribute-input" name="${inputName}">
         </li>`;
 
-    let newFieldContainer = document.querySelector(`.${input.name}`);
+    let newFieldContainer = card.querySelector(`.${input.name}`);
     newFieldContainer.innerHTML += `
         <li class="card-listed-attribute">
             <label style="margin-right:4px">${inputLabel}</label>    

@@ -80,7 +80,7 @@ deckContainer.addEventListener('click', event => {
     }
 
     if (element) {
-        console.log(element.id);
+        removeCard(element.id);
         event.stopPropagation()
     }
 

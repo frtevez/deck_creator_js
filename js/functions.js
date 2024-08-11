@@ -159,3 +159,17 @@ const insertNewAttribute = (input, card) => {
 
     loadInsertedAttribute(attributeParameters, card, '')
 };
+
+const reloadDeck = () => {
+    document.querySelectorAll('.card:not(#template-card)').forEach(card => card.remove())
+    updateDeck()
+}
+
+const removeCard = (cardId) => {
+    console.log(cardId);
+    
+    let cardIndex = cardId.slice(4)
+    deck.splice(cardIndex, 1)
+    reloadDeck()
+}
+

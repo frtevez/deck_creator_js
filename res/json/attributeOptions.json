@@ -1,0 +1,6 @@
+[
+    "<input type=\"file\" id=\"input-icon-attribute\" class=\"img-input\" name=\"listSideIconAttributes\">\n    <label for=\"input-icon-attribute\" class=\"img-input-button\">\n        Upload Icon\n        <p style=\"font-size: 9pt; display: flex; justify-content: center; opacity: .7;\">\n            (This icon attribute will be listed on a sidebar)\n        </p>\n    </label>",
+    "<input type=\"file\" id=\"input-icon-attribute\" class=\"img-input\" name=\"listMidIconAttributes\">\n    <label for=\"input-icon-attribute\" class=\"img-input-button\">\n        Upload Icon\n        <p style=\"font-size: 9pt; display: flex; justify-content: center; opacity: .7;\">\n            (This icon attribute will be listed above description)\n        </p>\n    </label>",
+    "<input type=\"file\" id=\"input-icon-attribute\" class=\"img-input\"  name=\"listIconAttributes\">\n    <label for=\"input-icon-attribute\" class=\"img-input-button\">\n        Upload Icon\n        <p style=\"font-size: 9pt; display: flex; justify-content: center; opacity: .7;\">\n            (This icon attribute will be listed in description)\n        </p>\n    </label>",
+    "<input type=\"text\" class=\"text-inputs\" placeholder=\"This attribute will be listed in description.\" name=\"listAttributes\">"
+]

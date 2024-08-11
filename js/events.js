@@ -6,16 +6,21 @@ cardSubmitter.addEventListener('submit', (e) => {
     updateDeck();
 });
 
-const newAttributeField = document.querySelector('#new-attribute-field');
-let checkedOption = parseInt(document.querySelector('input[name=\'option\']:checked').id.slice(6) - 1);
-const newAttributeOptions = document.querySelector('#new-attribute-options');
+fetch('./res/json/attributeOptions.json')
+    .then(response => response.json())
+    .then(options => {
+        
+        const newAttributeField = document.querySelector('#new-attribute-field');
+        let checkedOption = parseInt(document.querySelector('input[name=\'option\']:checked').id.slice(6) - 1);
+        const newAttributeOptions = document.querySelector('#new-attribute-options');
 
-newAttributeField.innerHTML = options[checkedOption];
-newAttributeOptions.addEventListener('change', (event) => {
+        newAttributeField.innerHTML = options[checkedOption];
+        newAttributeOptions.addEventListener('change', (event) => {
 
-    checkedOption = parseInt(event.target.id.slice(6) - 1);
-    newAttributeField.innerHTML = options[checkedOption];
-});
+            checkedOption = parseInt(event.target.id.slice(6) - 1);
+            newAttributeField.innerHTML = options[checkedOption];
+        });
+    })
 
 const attributeSubmitter = document.querySelector("#attribute-submitter");
 attributeSubmitter.addEventListener('submit', event => {

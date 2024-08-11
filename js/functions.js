@@ -7,11 +7,46 @@ let cardPreview = new CardStructure();
 let cardTemplate = document.querySelector('#template-card');
 const initialAttributes = { title: '', subtitle: '', caption: '', description: '', type: '', art: '' }
 
-
-
 const deckContainer = document.querySelector('#deck');
 
-const getFromAttributeInput = (input) => {
+const artDisplayStyle = () => {
+
+    // setTimeout to give browser time to compute style
+    setTimeout(() => {
+
+        let artIsBackground = (getComputedStyle(document.documentElement).getPropertyValue("--art-is-background") === 'true')
+        let deckStyleBackgroundImage = getComputedStyle(document.documentElement).getPropertyValue(document.querySelector('.deck-style-input[id="card-background-art"]').name)
+        if (artIsBackground) {
+            document.querySelectorAll("article.card").forEach(card => {
+
+                let imgElement = card.querySelector(`#card-art-container img`)
+                card.style.backgroundImage = `url(${imgElement.src})`
+                imgElement.style.visibility = "hidden"
+            })
+            return
+        }
+        document.querySelectorAll("article.card").forEach(card => {
+            let imgElement = card.querySelector(`#card-art-container img`)
+            card.style.backgroundImage = deckStyleBackgroundImage
+            imgElement.style.visibility = "visible"
+        })
+    }, 0)
+}
+
+const loadDeckStyle = () => {
+    if (JSON.parse(sessionStorage.getItem("deckStyle")) == '') { return }
+
+    for (let property in deckStyle) {
+        cssRoot.setProperty(property, deckStyle[property])
+    }
+}
+
+const updateDeckStyle = () => {
+    sessionStorage.setItem('deckStyle', JSON.stringify(deckStyle));
+    artDisplayStyle()
+}
+
+const getAttributeParameters = (input) => {
 
     let inputLabel = input.value;
     let inputName = input.value;
@@ -27,29 +62,6 @@ const getFromAttributeInput = (input) => {
     }
 
     return { inputLabel, inputName, inputValue, attributeListCategory }
-}
-
-const artDisplayStyle = () => {
-
-    // setTimeout to give browser time to compute style
-    setTimeout(() => {
-
-        let artIsBackground = (getComputedStyle(document.documentElement).getPropertyValue("--art-is-background") === 'true')
-        if (artIsBackground) {
-            document.querySelectorAll("article.card").forEach(card => {
-
-                let imgElement = card.querySelector(`#card-art-container img`)
-                card.style.backgroundImage = `url(${imgElement.src})`
-                imgElement.style.visibility = "hidden"
-            })
-            return
-        }
-        document.querySelectorAll("article.card").forEach(card => {
-            let imgElement = card.querySelector(`#card-art-container img`)
-            card.style.backgroundImage = "none"
-            imgElement.style.visibility = "visible"
-        })
-    }, 0)
 }
 
 const updateCardAttributeInputs = () => {
@@ -76,40 +88,40 @@ const updateCardAttributeInputs = () => {
     });
 };
 
-const loadAttribute = (attribute, card, value) => {
+const loadInsertedAttribute = (attribute, card, value) => {
 
-    let inputLabel = attribute.inputLabel;
-    let inputName = attribute.inputName;
+    let label = attribute.inputLabel;
+    let name = attribute.inputName;
     let attributeListCategory = attribute.attributeListCategory;
 
     let newFieldContainer = card.querySelector(`.${attributeListCategory}`);
     newFieldContainer.innerHTML += `
         <li class="card-listed-attribute">
-            <label style="margin-right:4px">${inputLabel}</label>    
-            <p class="card-field" name="${inputName}">${value}</p>
+            <label style="margin-right:4px">${label}</label>    
+            <p class="card-field" name="${name}">${value}</p>
         </li>`;
 }
 
 const updateCard = (card, index) => {
-    for (let property in card) {
+    for (let attribute in card) {
 
-        propertyInDOM = document.querySelector(`#card${index} [name=\"${property}\"]`);
-        cardInDOM = document.querySelector(`#card${index}`);
+        let attributeInDOM = document.querySelector(`#card${index} [name=\"${attribute}\"]`);
+        let cardInDOM = document.querySelector(`#card${index}`);
 
-        let isInInitialAttributes = (property in initialAttributes)
+        let isInInitialAttributes = (attribute in initialAttributes)
         if (!isInInitialAttributes) {
-            loadAttribute(
-                insertedAttributes[property],
+            loadInsertedAttribute(
+                insertedAttributes[attribute],
                 cardInDOM,
-                card[property])
+                card[attribute])
             continue
         }
-        if (propertyInDOM == null) { continue };
-        if (property == "art") {
-            propertyInDOM.src = card[property]
+        if (attributeInDOM == null) { continue };
+        if (attribute == "art") {
+            attributeInDOM.src = card[attribute]
             return
         }
-        propertyInDOM.innerHTML = card[property];
+        attributeInDOM.innerHTML = card[attribute];
     };
 }
 
@@ -128,36 +140,22 @@ const updateDeck = () => {
     updateCardAttributeInputs()
 };
 
-const loadDeckStyle = () => {
-    if (JSON.parse(sessionStorage.getItem("deckStyle")) == '') { return }
-
-    for (let property in deckStyle) {
-        cssRoot.setProperty(property, deckStyle[property])
-    }
-}
-
-const updateDeckStyle = () => {
-    sessionStorage.setItem('deckStyle', JSON.stringify(deckStyle));
-}
-
 const cardInputs = document.querySelector("#card-creator-inputs");
 const insertNewAttribute = (input, card) => {
 
-    let inputParameters = getFromAttributeInput(input)
-    let inputLabel = inputParameters.inputLabel;
-    let inputName = inputParameters.inputName;
+    let attributeParameters = getAttributeParameters(input)
+    let label = attributeParameters.inputLabel;
+    let name = attributeParameters.inputName;
 
-    cardPreview.set(inputName, '')
-    insertedAttributes[inputName] = inputParameters
-
+    cardPreview.set(name, '')
+    insertedAttributes[name] = attributeParameters
     sessionStorage.setItem('insertedAttributes', JSON.stringify(insertedAttributes));
-
 
     cardInputs.innerHTML += `
         <li>
-        <label>${inputLabel}</label>
-        <input type="text" class="text-inputs card-attribute-input" name="${inputName}">
+        <label>${label}</label>
+        <input type="text" class="text-inputs card-attribute-input" name="${name}">
         </li>`;
 
-    loadAttribute(inputParameters, card, '')
+    loadInsertedAttribute(attributeParameters, card, '')
 };

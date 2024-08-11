@@ -6,10 +6,6 @@ class CardStructure {
         this.description = description;
         this.type = type;
         this.art = art;
-        // this.listSideIconAttributes = [];
-        // this.listMidIconAttributes = [];
-        // this.listAttributes = [];
-        // this.listIconAttributes = [];
     };
 
     set(property, value) {

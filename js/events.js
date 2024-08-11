@@ -9,7 +9,7 @@ cardSubmitter.addEventListener('submit', (e) => {
 fetch('./res/json/attributeOptions.json')
     .then(response => response.json())
     .then(options => {
-        
+
         const newAttributeField = document.querySelector('#new-attribute-field');
         let checkedOption = parseInt(document.querySelector('input[name=\'option\']:checked').id.slice(6) - 1);
         const newAttributeOptions = document.querySelector('#new-attribute-options');
@@ -69,4 +69,19 @@ document.querySelectorAll(`input[name="--art-is-background"]`).forEach(input => 
     input.addEventListener('click', () => {
         artDisplayStyle()
     })
+})
+
+deckContainer.addEventListener('click', event => {
+
+    element = event.target
+
+    while (element && !element.classList.contains('card')) {
+        element = element.parentElement
+    }
+
+    if (element) {
+        console.log(element.id);
+        event.stopPropagation()
+    }
+
 })

@@ -576,3 +576,26 @@ article>.card-contents>#card-description-container>p {
 .card-listed-attribute>label {
     color: black;
 }
+
+.card:not(#template-card) .card-contents::before {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    content: "Remove";
+    color: #ffffff00;
+    font-size: 28pt;
+    background-color: #a52a2a00;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    border-radius: var(--card-corner-roundness);
+    transition: all 200ms;
+}
+.card:hover:not(#template-card) .card-contents::before {
+    transition: all 100ms;
+    color: #ffffff;
+    background-color: #a52a2ac8;
+}

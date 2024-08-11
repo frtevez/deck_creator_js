@@ -74,8 +74,11 @@ const updateDeck = () => {
     deck.forEach((card, index) => {
 
         if (document.querySelector(`#card${index}`) != null) { return };
-
-        deckContainer.innerHTML += cardTemplate.outerHTML.replace('id=\"template-card\"', `id=\"card${index}\"`);
+        
+        let newCard = cardTemplate.cloneNode(true)
+        newCard.id = `card${index}`
+        
+        deckContainer.appendChild(newCard)
         updateCard(card, index)
     });
     sessionStorage.setItem('deck', JSON.stringify(deck))

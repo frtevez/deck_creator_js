@@ -3,7 +3,7 @@ cardSubmitter.addEventListener('submit', (e) => {
     e.preventDefault();
 
     deck.push({ ...cardPreview });
-    updateDeck();
+    updateDeck(false);
 });
 
 fetch('./res/json/attributeOptions.json')
@@ -52,6 +52,7 @@ attributeSubmitter.addEventListener('submit', event => {
 
 document.querySelectorAll('.deck-style-input').forEach(input => {
 
+    if (input.name == "--art-is-background") {return}
     input.addEventListener('input', (event) => {
 
         let propertyValue = event.target.value;
@@ -61,13 +62,18 @@ document.querySelectorAll('.deck-style-input').forEach(input => {
         deckStyle[input.name] = propertyValue;
 
         cssRoot.setProperty(input.name, propertyValue);
+        artDisplayStyle();
         updateDeckStyle();
     })
 })
 
 document.querySelectorAll(`input[name="--art-is-background"]`).forEach(input => {
-    input.addEventListener('click', () => {
-        artDisplayStyle()
+    input.addEventListener('click', (event) => {
+
+        deckStyle[input.name] = event.target.value;
+        updateDeckStyle();
+        artDisplayStyle();
+
     })
 })
 

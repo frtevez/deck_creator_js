@@ -14,7 +14,9 @@ const artDisplayStyle = () => {
     // setTimeout to give browser time to compute style
     setTimeout(() => {
 
-        let artIsBackground = (getComputedStyle(document.documentElement).getPropertyValue("--art-is-background") === 'true')
+        let artIsBackground = (deckStyle["--art-is-background"] === "true")
+        console.log(artIsBackground);
+        
         let deckStyleBackgroundImage = getComputedStyle(document.documentElement).getPropertyValue(document.querySelector('.deck-style-input[id="card-background-art"]').name)
         if (artIsBackground) {
             document.querySelectorAll("article.card").forEach(card => {
@@ -35,15 +37,15 @@ const artDisplayStyle = () => {
 
 const loadDeckStyle = () => {
     if (JSON.parse(sessionStorage.getItem("deckStyle")) == '') { return }
-
+    
     for (let property in deckStyle) {
         cssRoot.setProperty(property, deckStyle[property])
     }
+    artDisplayStyle()
 }
 
 const updateDeckStyle = () => {
     sessionStorage.setItem('deckStyle', JSON.stringify(deckStyle));
-    artDisplayStyle()
 }
 
 const getAttributeParameters = (input) => {
@@ -62,6 +64,22 @@ const getAttributeParameters = (input) => {
     }
 
     return { inputLabel, inputName, inputValue, attributeListCategory }
+}
+
+const hideEmptyAttributeLists = (cardId) => {
+
+    let attributeLists = [
+        document.querySelector(`#${cardId} #card-side-attributes`),
+        document.querySelector(`#${cardId} #card-mid-attributes`)
+    ]
+    attributeLists.forEach(attributeList => {
+        
+        if (attributeList.innerHTML == '') {
+            attributeList.style.visibility = "hidden"
+        } else {
+            attributeList.style.visibility = "visible"
+        }
+    })
 }
 
 const updateCardAttributeInputs = () => {
@@ -100,9 +118,11 @@ const loadInsertedAttribute = (attribute, card, value) => {
             <label style="margin-right:4px">${label}</label>    
             <p class="card-field" name="${name}">${value}</p>
         </li>`;
+
+    hideEmptyAttributeLists(card.id)
 }
 
-const updateCard = (card, index) => {
+const loadCard = (card, index) => {
     for (let attribute in card) {
 
         let attributeInDOM = document.querySelector(`#card${index} [name=\"${attribute}\"]`);
@@ -119,13 +139,14 @@ const updateCard = (card, index) => {
         if (attributeInDOM == null) { continue };
         if (attribute == "art") {
             attributeInDOM.src = card[attribute]
-            return
+            continue
         }
+        
         attributeInDOM.innerHTML = card[attribute];
     };
 }
 
-const updateDeck = () => {
+const updateDeck = (loadCards) => {
     deck.forEach((card, index) => {
 
         if (document.querySelector(`#card${index}`) != null) { return };
@@ -134,7 +155,7 @@ const updateDeck = () => {
         newCard.id = `card${index}`
 
         deckContainer.appendChild(newCard)
-        updateCard(card, index)
+        !loadCards || loadCard(card, index)
     });
     sessionStorage.setItem('deck', JSON.stringify(deck))
     updateCardAttributeInputs()
@@ -162,12 +183,11 @@ const insertNewAttribute = (input, card) => {
 
 const reloadDeck = () => {
     document.querySelectorAll('.card:not(#template-card)').forEach(card => card.remove())
-    updateDeck()
+    updateDeck(true)
 }
 
 const removeCard = (cardId) => {
-    console.log(cardId);
-    
+
     let cardIndex = cardId.slice(4)
     deck.splice(cardIndex, 1)
     reloadDeck()

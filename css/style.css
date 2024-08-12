@@ -10,7 +10,7 @@
     --card-border-space: 12px;
     --card-art-height: 125px;
     --card-corner-roundness: 15px;
-    --art-is-background:true;
+    --art-is-background: true;
 
     --card-description-border-space: 4px;
     --card-type-caption-border-space: 5px;
@@ -40,7 +40,7 @@
     --card-caption-container-color: #fff8dc;
     --card-caption-container-art: '';
     --card-caption-container-art-fit: 100% 100%;
-    
+
     --card-description-container-color: #fff8dc;
     --card-description-container-art: '';
     --card-description-container-art-fit: 100% 100%;
@@ -207,7 +207,7 @@ aside#deck-style-editor {
 }
 
 #editor-switch-checkbox-label {
-    position: absolute;
+    position: fixed;
     right: 352px;
     top: 74px;
     width: 48px;
@@ -262,11 +262,12 @@ input[type="color"] {
 }
 
 input[type="color"]:hover {
-    transition-timing-function: cubic-bezier(.64,.04,.45,2.04);
+    transition-timing-function: cubic-bezier(.64, .04, .45, 2.04);
     transition-duration: 200ms;
     transform: scale(1.3);
 }
-input[type="color"]:active{
+
+input[type="color"]:active {
     transition: all 100ms;
     filter: brightness(.3);
     transform: scale(1.1);
@@ -315,7 +316,8 @@ aside form#deck-style>#deck-style-inputs>li>label.deck-style-file-upload:active 
     transition: all 100ms;
     background-color: hsl(from var(--color1) h s calc(l*0.7));
 }
-aside form#deck-style>#deck-style-inputs>li>label.deck-style-file-upload>img{
+
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-file-upload>img {
     filter: invert(.9);
 }
 
@@ -577,6 +579,10 @@ article>.card-contents>#card-description-container>p {
     color: black;
 }
 
+.card-listed-attribute>.card-field {
+    word-break: normal;
+}
+
 .card:not(#template-card) .card-contents::before {
     position: absolute;
     display: flex;
@@ -594,6 +600,7 @@ article>.card-contents>#card-description-container>p {
     border-radius: var(--card-corner-roundness);
     transition: all 200ms;
 }
+
 .card:hover:not(#template-card) .card-contents::before {
     transition: all 100ms;
     color: #ffffff;

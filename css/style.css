@@ -339,6 +339,83 @@ aside form#deck-style>#deck-style-inputs>li>label.deck-style-button:active {
 }
 
 /* --------------------------------------------------------------------------------------------- */
+
+aside#file-manager {
+    left: 0;
+    background-color: hsl(from var(--color3) h s calc(l*.8));;
+    transform: translateX(-354px);
+    box-shadow: none;
+    transition: all 400ms;
+    z-index: 3;
+    scrollbar-width: none;
+}
+
+#file-manager-switch-checkbox-label {
+    position: fixed;
+    left: 15px;
+    top: 8px;
+    padding: 9px;
+    border-radius: 7px;
+    background-color: #ffffff00;
+    border-right: none;
+    transition: all 400ms;
+    z-index: 4;
+}
+
+#file-manager-switch-checkbox-label svg {
+    filter: invert(.5);
+    width: 30px;
+    height: 30px;
+}
+
+#file-manager-switch-checkbox-label:hover {
+    background-color: hsl(from var(--color3) h s calc(l*1.5));;
+    transition: all 400ms;
+}
+
+#file-manager-switch-checkbox-label:active,
+#file-manager-switch-checkbox-label:active+aside#file-manager {
+    background-color: #171717;
+    transition: all 100ms;
+}
+
+aside#file-manager>#file-manager-switch>#file-manager-switch-checkbox {
+    display: none;
+}
+
+input[type="checkbox"]#file-manager-switch-checkbox+label {
+    cursor: pointer;
+}
+
+input[type="checkbox"]#file-manager-switch-checkbox:checked+label+#file-manager {
+    transform: translateX(0px);
+}
+
+aside#file-manager>#file-manager-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reset-to-default {
+    display: none;
+}
+#reset-to-default-label {
+    background-color: #a52a2a;
+    padding: 16px;
+    border-radius: 7px;
+    transition: all 400ms;
+}
+#reset-to-default-label:hover {
+    transition: all 200ms;
+    background-color: hsl(from #a52a2a h calc(s*.9) calc(l*1.1))
+}
+#reset-to-default-label:active {
+    transition: all 100ms;
+    background-color: hsl(from #a52a2a h calc(s*1.3) calc(l*.7))
+}
+
+/* --------------------------------------------------------------------------------------------- */
 #attribute-creator>form#new-attribute-options {
     display: flex;
     flex-direction: row;
@@ -376,11 +453,12 @@ main {
 
     display: grid;
     gap: 15px;
+    justify-items: center;
     grid-auto-rows: var(--card-height);
     grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
     background-color: var(--color1);
     padding: 20px;
-    width: calc(100vw - 320px - 10px * 4);
+    width: calc(100vw - 320px - 20px * 4);
     transition: all 300ms;
 
 }

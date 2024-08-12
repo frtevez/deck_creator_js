@@ -1,3 +1,5 @@
-PRE-ENTREGA 3
+PROYECTO FINAL
 ---
-El proyecto consiste en un creador de mazo de cartas personalizadas.
+El proyecto consiste en un creador de mazos de cartas personalizadas.
+
+No lo considero terminado, pero lo que queda es agregar contenido (más opciones) y detalles.

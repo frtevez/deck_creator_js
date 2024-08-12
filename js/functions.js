@@ -15,7 +15,6 @@ const artDisplayStyle = () => {
     setTimeout(() => {
 
         let artIsBackground = (deckStyle["--art-is-background"] === "true")
-        console.log(artIsBackground);
         
         let deckStyleBackgroundImage = getComputedStyle(document.documentElement).getPropertyValue(document.querySelector('.deck-style-input[id="card-background-art"]').name)
         if (artIsBackground) {

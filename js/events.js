@@ -91,3 +91,8 @@ deckContainer.addEventListener('click', event => {
     }
 
 })
+
+document.querySelector('#reset-to-default').addEventListener('click', event => {
+    sessionStorage.clear();
+    window.location.reload();
+})

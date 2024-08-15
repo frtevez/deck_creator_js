@@ -5,8 +5,12 @@
     --color4: #000000;
     --color5: chocolate;
 
-    --card-width: 250px;
+    --card-ratio-vertical:7;
+    --card-ratio-horizontal: 5;
+    --card-resolution: 50px;
+
     --card-height: 350px;
+    --card-width: calc((var(--card-ratio-horizontal) * var(--card-height)) / var(--card-ratio-vertical));
     --card-border-space: 12px;
     --card-art-height: 125px;
     --card-corner-roundness: 15px;
@@ -24,14 +28,17 @@
     --card-side-icons-art: '';
     --card-side-icons-art-fit: 100% 100%;
     --card-side-icons-side: none;
-
+    --card-side-attributes-font-color: white;
+    
     --card-mid-icons-color: chocolate;
     --card-mid-icons-art: '';
     --card-mid-icons-art-fit: 100% 100%;
+    --card-mid-attributes-font-color: white;
 
     --card-containers-color: #fff8dc;
     --card-containers-art: none;
     --card-containers-art-fit: 100% 100%;
+    --card-containers-font-color: black;
 
     --card-title-container-color: #fff8dc;
     --card-title-container-art: '';
@@ -293,6 +300,8 @@ aside form#deck-style>#deck-style-inputs>li:not(.deck-style-buttons) {
 
 aside form#deck-style>#deck-style-inputs>li.deck-style-buttons {
     margin: 0 0 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 aside form#deck-style>#deck-style-inputs>li>label {
@@ -321,7 +330,7 @@ aside form#deck-style>#deck-style-inputs>li>label.deck-style-file-upload>img {
     filter: invert(.9);
 }
 
-aside form#deck-style>#deck-style-inputs>li>label.deck-style-button {
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-button, aside form#deck-style>#deck-style-inputs>li>.deck-style-sub {
     background-color: var(--color2);
     border-radius: 10px;
     padding: 10px;
@@ -336,6 +345,47 @@ aside form#deck-style>#deck-style-inputs>li>label.deck-style-button:hover {
 aside form#deck-style>#deck-style-inputs>li>label.deck-style-button:active {
     transition: all 100ms;
     background-color: hsl(from var(--color1) h s calc(l*0.7));
+}
+
+aside form#deck-style>#deck-style-inputs>li>.deck-style-sub {
+    display: flex;
+    width: 200px;
+    padding: 5px;
+    margin: 0 0 8px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+#deck-style-editor>#deck-style>#deck-style-inputs>#card-ratio-config {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 9px;
+}
+
+#deck-style-editor>#deck-style>#deck-style-inputs>#card-ratio-config>label {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    border-style: solid;
+    border-radius: 5px;
+    border-color: rgba(210, 105, 30, 0);
+    background-color: hsl(from var(--color1) h s calc(l*0.7));
+    padding: 0 8px;
+    height: 24px;
+    font-size: 12pt;
+    transition: border-color 400ms;
+    outline: none;
+    width: 42px;
+}
+
+input[type="number"]:focus-visible {
+    border-color: var(--color5);
+    transition: border-color 200ms;
 }
 
 /* --------------------------------------------------------------------------------------------- */
@@ -498,7 +548,7 @@ article>.card-contents {
 }
 
 article>.card-contents p {
-    color: black;
+    color: var(--card-containers-font-color);
     word-break: break-word;
 }
 
@@ -627,6 +677,7 @@ article>.card-contents>#card-caption-container {
     background-image: var(--card-containers-art);
     background-size: var(--card-containers-art-fit);
     border-radius: var(--card-inner-corner-roundness);
+    color: var(--card-containers-font-color);
     margin: 0px 0px 4px 0px;
     z-index: 1;
 
@@ -667,6 +718,13 @@ article>.card-contents>#card-description-container>p {
 
 .card-listed-attribute>.card-field {
     word-break: normal;
+}
+
+#card-side-attributes>.card-listed-attribute>p.card-field {
+    color: var(--card-side-attributes-font-color);
+}
+#card-mid-attributes>.card-listed-attribute>.card-field {
+    color: var(--card-mid-attributes-font-color);
 }
 
 .card:not(#template-card) .card-contents::before {

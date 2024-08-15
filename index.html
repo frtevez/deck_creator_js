@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Pre-entrega 3</title>
+    <title>Card Designer</title>
 </head>
 
 <body>
@@ -116,6 +116,11 @@
                     </li>
                     <li class="deck-style-buttons">
 
+                        <div class="deck-style-sub">
+                            <label>Font</label>
+                            <input type="color" id="card-containers-font-color" value="#000000" class="deck-style-input"
+                                name="--card-containers-font-color">
+                        </div>
                         <input type="radio" name="--card-containers-art-fit" id="card-containers-art-stretch"
                             value="100% 100%" class="deck-style-input" style="display: none;" checked>
                         <label for="card-containers-art-stretch" class="deck-style-button">Stretch Image</label>
@@ -135,6 +140,11 @@
                     </li>
                     <li class="deck-style-buttons">
 
+                        <div class="deck-style-sub">
+                            <label>Font</label>
+                            <input type="color" id="card-side-attributes-font-color" value="#000000"
+                                class="deck-style-input" name="--card-side-attributes-font-color">
+                        </div>
                         <input type="radio" name="--card-side-icons-art-fit" id="card-side-icons-art-stretch"
                             value="100% 100%" class="deck-style-input" style="display: none;" checked>
                         <label for="card-side-icons-art-stretch" class="deck-style-button">Stretch Image</label>
@@ -164,6 +174,11 @@
                     </li>
                     <li class="deck-style-buttons">
 
+                        <div class="deck-style-sub">
+                            <label>Font</label>
+                            <input type="color" id="card-mid-attributes-font-color" value="#000000"
+                                class="deck-style-input" name="--card-mid-attributes-font-color">
+                        </div>
                         <input type="radio" name="--card-mid-icons-art-fit" id="card-mid-icons-art-stretch"
                             value="100% 100%" class="deck-style-input" style="display: none;" checked>
                         <label for="card-mid-icons-art-stretch" class="deck-style-button">Stretch Image</label>
@@ -182,6 +197,15 @@
                         <input type="radio" name="--art-is-background" id="art-display-style-background" value="true"
                             class="deck-style-input" style="display: none;">
                         <label for="art-display-style-background" class="deck-style-button">Background</label>
+                    </li>
+                    <li id="card-ratio-config">
+
+                        <label>Ratio</label>
+                        <input type="number" min="1" max="16" step="0.5" name="--card-ratio-horizontal"
+                            class="deck-style-input" value="5" id="card-ratio-horizontal">
+                            :
+                        <input type="number" min="1" max="16" step="0.5" name="--card-ratio-vertical"
+                            class="deck-style-input" value="7" id="card-ratio-vertical">
                     </li>
                 </menu>
             </form>
@@ -229,8 +253,7 @@
                         <ul id="card-side-attributes" class="listSideIconAttributes"></ul>
                     </section>
                     <section id="card-art-container">
-                        <img src="https://www.bhmpics.com/downloads/madao-Wallpapers/8.madao_gintama_minimalist_by_dark8651_daeqi3i-pre.jpg"
-                            class="card-field" name="art" alt="">
+                        <img src="res/img/card-art-placeholder.jpg" class="card-field" name="art" alt="">
                     </section>
                     <section id="card-mid-attributes-container">
                         <ul id="card-mid-attributes" class="listMidIconAttributes"></ul>
@@ -242,7 +265,8 @@
                         <ul class="card-list-attributes listAttributes listIconAttributes">
                         </ul>
                         <p id="card-description" class="card-field" name="description">
-                            This is a placeholder description for the preview card. It may be deleted later.
+                            This is a placeholder description for the preview card. Your card's description will be
+                            displayed here.
                         </p>
                     </section>
                     <section id="card-type-container">

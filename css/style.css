@@ -5,7 +5,7 @@
     --color4: #000000;
     --color5: chocolate;
 
-    --card-ratio-vertical:7;
+    --card-ratio-vertical: 7;
     --card-ratio-horizontal: 5;
     --card-size: 50;
 
@@ -31,7 +31,7 @@
     --card-side-icons-art-fit: 100% 100%;
     --card-side-icons-side: none;
     --card-side-attributes-font-color: white;
-    
+
     --card-mid-icons-color: chocolate;
     --card-mid-icons-art: '';
     --card-mid-icons-art-fit: 100% 100%;
@@ -289,6 +289,20 @@ aside form#deck-style>#deck-style-inputs {
     flex-wrap: wrap;
 }
 
+aside form#deck-style>#deck-style-inputs>h2 {
+    display: flex;
+    justify-content: start;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+aside form#deck-style>#deck-style-inputs>h3 {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    margin-top: 5px;
+}
+
 aside form#deck-style>#deck-style-inputs>li:not(.deck-style-buttons) {
     display: flex;
     justify-content: center;
@@ -332,7 +346,8 @@ aside form#deck-style>#deck-style-inputs>li>label.deck-style-file-upload>img {
     filter: invert(.9);
 }
 
-aside form#deck-style>#deck-style-inputs>li>label.deck-style-button, aside form#deck-style>#deck-style-inputs>li>.deck-style-sub {
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-button,
+aside form#deck-style>#deck-style-inputs>li>.deck-style-sub {
     background-color: var(--color2);
     border-radius: 10px;
     padding: 10px;
@@ -380,7 +395,8 @@ input[type="number"]:focus-visible {
 
 aside#file-manager {
     left: 0;
-    background-color: hsl(from var(--color3) h s calc(l*.8));;
+    background-color: hsl(from var(--color3) h s calc(l*.8));
+    ;
     transform: translateX(-354px);
     box-shadow: none;
     transition: all 400ms;
@@ -407,7 +423,8 @@ aside#file-manager {
 }
 
 #file-manager-switch-checkbox-label:hover {
-    background-color: hsl(from var(--color3) h s calc(l*1.5));;
+    background-color: hsl(from var(--color3) h s calc(l*1.5));
+    ;
     transition: all 400ms;
 }
 
@@ -438,16 +455,19 @@ aside#file-manager>#file-manager-options {
 #reset-to-default {
     display: none;
 }
+
 #reset-to-default-label {
     background-color: #a52a2a;
     padding: 16px;
     border-radius: 7px;
     transition: all 400ms;
 }
+
 #reset-to-default-label:hover {
     transition: all 200ms;
     background-color: hsl(from #a52a2a h calc(s*.9) calc(l*1.1))
 }
+
 #reset-to-default-label:active {
     transition: all 100ms;
     background-color: hsl(from #a52a2a h calc(s*1.3) calc(l*.7))
@@ -712,6 +732,7 @@ article>.card-contents>#card-description-container>p {
 #card-side-attributes>.card-listed-attribute>p.card-field {
     color: var(--card-side-attributes-font-color);
 }
+
 #card-mid-attributes>.card-listed-attribute>.card-field {
     color: var(--card-mid-attributes-font-color);
 }

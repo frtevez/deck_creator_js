@@ -52,7 +52,31 @@ attributeSubmitter.addEventListener('submit', event => {
 
 document.querySelectorAll('.deck-style-input').forEach(input => {
 
-    if (input.name == "--art-is-background") {return}
+    if (input.name == "--art-is-background") {
+
+        input.addEventListener('click', (event) => {
+
+            deckStyle[input.name] = event.target.value;
+            updateDeckStyle();
+            artDisplayStyle();
+        })
+        return
+    }
+    if (input.type == "button") {
+        input.addEventListener("click", event => {
+
+            let propertyValue = event.target.value;
+
+            deckStyle[input.name] = propertyValue;
+
+            cssRoot.setProperty(input.name, propertyValue);
+
+            artDisplayStyle();
+            updateDeckStyle();
+        })
+        return
+    }
+
     input.addEventListener('input', (event) => {
 
         let propertyValue = event.target.value;
@@ -64,16 +88,6 @@ document.querySelectorAll('.deck-style-input').forEach(input => {
         cssRoot.setProperty(input.name, propertyValue);
         artDisplayStyle();
         updateDeckStyle();
-    })
-})
-
-document.querySelectorAll(`input[name="--art-is-background"]`).forEach(input => {
-    input.addEventListener('click', (event) => {
-
-        deckStyle[input.name] = event.target.value;
-        updateDeckStyle();
-        artDisplayStyle();
-
     })
 })
 

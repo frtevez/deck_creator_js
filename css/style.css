@@ -268,6 +268,7 @@ input[type="color"] {
     height: 35px;
     clip-path: circle(12px);
     transition: all 300ms;
+    margin-right: 8px;
 }
 
 input[type="color"]:hover {
@@ -324,26 +325,28 @@ aside form#deck-style>#deck-style-inputs>li>label {
     width: max-content;
 }
 
-aside form#deck-style>#deck-style-inputs>li>label.deck-style-file-upload {
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-icon {
     background-color: var(--color1);
     border-radius: 20px;
     padding: 6px;
     padding-bottom: 3px;
     transition: all 300ms;
+    
 }
 
-aside form#deck-style>#deck-style-inputs>li>label.deck-style-file-upload:hover {
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-icon:hover {
     background-color: hsl(from var(--color1) h s calc(l*1.3));
     transition: all 100ms;
 }
 
-aside form#deck-style>#deck-style-inputs>li>label.deck-style-file-upload:active {
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-icon:active {
     transition: all 100ms;
     background-color: hsl(from var(--color1) h s calc(l*0.7));
 }
 
-aside form#deck-style>#deck-style-inputs>li>label.deck-style-file-upload>img {
+aside form#deck-style>#deck-style-inputs>li>label.deck-style-icon>img {
     filter: invert(.9);
+    height: 30px;
 }
 
 aside form#deck-style>#deck-style-inputs>li>label.deck-style-button,

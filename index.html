@@ -212,6 +212,20 @@
                             class="deck-style-input" style="display: none;">
                         <label for="art-display-style-background" class="deck-style-button">Background</label>
                     </li>
+                    <li>
+                        <label>Art Frame Height</label>
+                        <input type="number" name="--card-art-height-amount" id="card-art-height-amount" min="1"
+                            max="100" class="deck-style-input" step="1" value="40">
+                    </li>
+                    <li class="deck-style-buttons">
+                        <input type="radio" name="--card-art-height-fit" id="card-art-height-fit-art-height"
+                            value="max-content" class="deck-style-input" style="display: none;" checked>
+                        <label for="card-art-height-fit-art-height" class="deck-style-button">Art Height</label>
+
+                        <input type="radio" name="--card-art-height-fit" id="card-art-height-fit-custom-height"
+                            value="1" class="deck-style-input" style="display: none;">
+                        <label for="card-art-height-fit-custom-height" class="deck-style-button">Custom Height</label>
+                    </li>
                 </menu>
             </form>
 

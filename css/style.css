@@ -12,7 +12,9 @@
     --card-height: calc((var(--card-ratio-vertical) * var(--card-size) * 1px));
     --card-width: calc((var(--card-ratio-horizontal) * var(--card-size) * 1px));
     --card-border-space: 12px;
-    --card-art-height: 40%;
+    --card-art-height-fit: 1;
+    --card-art-height-amount: 39;
+    --card-art-height: calc((var(--card-art-height-amount) * 1%) * var(--card-art-height-fit));
     --card-corner-roundness: 15px;
     --art-is-background: true;
 
@@ -634,6 +636,7 @@ article>.card-contents>#card-art-container {
     align-items: center;
     left: 0;
     top: 0;
+    height: max-content;
     height: var(--card-art-height);
     width: calc(var(--card-width) - var(--card-border-space)*2);
     overflow: hidden;

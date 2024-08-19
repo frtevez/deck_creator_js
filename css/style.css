@@ -7,12 +7,12 @@
 
     --card-ratio-vertical:7;
     --card-ratio-horizontal: 5;
-    --card-resolution: 50px;
+    --card-size: 50;
 
-    --card-height: 350px;
-    --card-width: calc((var(--card-ratio-horizontal) * var(--card-height)) / var(--card-ratio-vertical));
+    --card-height: calc((var(--card-ratio-vertical) * var(--card-size) * 1px));
+    --card-width: calc((var(--card-ratio-horizontal) * var(--card-size) * 1px));
     --card-border-space: 12px;
-    --card-art-height: 125px;
+    --card-art-height: 40%;
     --card-corner-roundness: 15px;
     --art-is-background: true;
 
@@ -60,7 +60,7 @@
     --card-title-container-border-space: 3px;
     --card-side-attributes-display: flex;
     --card-mid-attributes-display: flex;
-    --card-art-zoom: 226px;
+    --card-art-zoom: 100%;
 }
 
 * {
@@ -289,13 +289,13 @@ aside form#deck-style>#deck-style-inputs {
 
 aside form#deck-style>#deck-style-inputs>li:not(.deck-style-buttons) {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: var(--color3);
     border-radius: 15px;
     padding: 8px 20px;
     margin: 10px 5px;
-    width: min-content;
+    width: 250px;
 }
 
 aside form#deck-style>#deck-style-inputs>li.deck-style-buttons {
@@ -354,20 +354,6 @@ aside form#deck-style>#deck-style-inputs>li>.deck-style-sub {
     margin: 0 0 8px 0;
     justify-content: center;
     align-items: center;
-}
-
-#deck-style-editor>#deck-style>#deck-style-inputs>#card-ratio-config {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 9px;
-}
-
-#deck-style-editor>#deck-style>#deck-style-inputs>#card-ratio-config>label {
-    display: flex;
-    justify-content: center;
-    width: 150px;
-    margin-bottom: 5px;
 }
 
 input[type="number"] {

@@ -87,6 +87,20 @@
             <form id="deck-style">
                 <menu id="deck-style-inputs">
                     <li>
+
+                        <label>Card Ratio:</label>
+                        <input type="number" min="1" max="16" step="0.5" name="--card-ratio-horizontal"
+                            class="deck-style-input" value="5" id="card-ratio-horizontal">
+                        :
+                        <input type="number" min="1" max="16" step="0.5" name="--card-ratio-vertical"
+                            class="deck-style-input" value="7" id="card-ratio-vertical">
+                    </li>
+                    <li>
+                        <label>Card Size:</label>
+                        <input type="number" name="--card-size" id="card-size-input" min="1" max="100"
+                            class="deck-style-input" step="1" value="50">
+                    </li>
+                    <li>
                         <label>Background:</label>
                         <input type="color" id="card-background-color" value="#a52a2a" class="deck-style-input"
                             name="--card-background-color">
@@ -197,15 +211,6 @@
                         <input type="radio" name="--art-is-background" id="art-display-style-background" value="true"
                             class="deck-style-input" style="display: none;">
                         <label for="art-display-style-background" class="deck-style-button">Background</label>
-                    </li>
-                    <li id="card-ratio-config">
-
-                        <label>Ratio</label>
-                        <input type="number" min="1" max="16" step="0.5" name="--card-ratio-horizontal"
-                            class="deck-style-input" value="5" id="card-ratio-horizontal">
-                            :
-                        <input type="number" min="1" max="16" step="0.5" name="--card-ratio-vertical"
-                            class="deck-style-input" value="7" id="card-ratio-vertical">
                     </li>
                 </menu>
             </form>
